@@ -1,0 +1,61 @@
+.wrapper
+{
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+.cardContainer 
+{
+  padding: 23px 26px;
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  width: 330px;
+  margin: 14px;
+
+}
+
+.courseName
+{
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.courseInfo
+{
+  font-size: 16px;
+}
+
+.courseFooter
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  margin-top: 27px;
+}
+
+.courseStatus
+{
+  display: flex;
+  align-items: center;
+  background: #FEB83E;
+  border-radius: 100px;
+  color: #FFFFFF;
+  padding: 4px 16px;
+  font-size: 12px;
+}
+
+.courseDetail
+{
+  border: none;
+  background: #3D5AFE;
+  border-radius: 10px;
+  color: #FFFFFF;
+  padding: 12px 24px;
+  cursor: pointer;
+
+}
