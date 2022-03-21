@@ -1,0 +1,65 @@
+.navContainer
+{
+  padding: 16px;
+  position: fixed;
+  width: 314px;
+  height: 100%;
+  background-color: #FFFFFF;
+  border-right: solid 1px rgba(#B4B6C5, 0.38);
+
+}
+
+.wrapperNavbar
+{
+  li 
+  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    cursor: pointer;
+
+    a 
+    {
+      margin-left: 12px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #333333;
+    }
+
+    &:active,
+    &:hover,
+    &:first-of-type
+    {
+      background-color: rgba(#E5E8F2, 0.6);
+      border-radius: 10px;
+    }
+
+    &:last-of-type
+    {
+      margin-top: 16px;
+    }
+  }
+}
+
+.dashboardIcon 
+{
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  background-position: center center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-image: url("../../../dist/images/category.svg");
+}
+
+.coursesIcon 
+{
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  background-position: center center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-image: url("../../../dist/images/inbox.svg");
+}
