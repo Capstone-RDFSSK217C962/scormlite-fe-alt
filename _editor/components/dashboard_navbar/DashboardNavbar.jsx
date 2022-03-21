@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./DashboardNavbar.module.scss";
 
@@ -7,14 +8,18 @@ function DashboardNavbar() {
         <div className="navContainer">
             <div className="wrapperNavbar">
                 <ul>
-                    <li>
-                        <div className="dashboardIcon"/>
-                        <a>Dashboard</a>
-                    </li>
-                    <li >
-                        <div className="coursesIcon"/>
-                        <a >Semua Courses</a>
-                    </li>
+                    <Link to="/">
+                        <li>
+                            <div className="dashboardIcon" />
+                            <a>Dashboard</a>
+                        </li>
+                    </Link>
+                    <Link to="/all-courses">
+                        <li>
+                            <div className="coursesIcon" />
+                            <a>Semua Courses</a>
+                        </li>
+                    </Link>
                 </ul>
             </div>
         </div>

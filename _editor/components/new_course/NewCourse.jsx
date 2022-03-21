@@ -50,14 +50,9 @@ function NewCourse() {
                         />
                     </div>
                     <div className="buttonWrapper">
-                        {/* <Link
-              className="submitButton"
-              href={{
-                pathname: "/course-detail",
-              }}
-            >
-              <a>Buat Course</a>
-            </Link> */}
+                        <Link className="submitButton" to="/course-detail">
+                            <a>Buat Course</a>
+                        </Link>
                         {/* <button
               className={stylesForm.submitButton}
               onClick={() => Router.push("/course-detail")}
