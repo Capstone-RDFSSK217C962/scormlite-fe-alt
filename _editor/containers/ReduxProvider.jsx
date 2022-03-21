@@ -8,7 +8,9 @@ import { createStore, compose, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
 import Ediphy from "../../core/editor/main";
 import Home from "../components/home/Home";
+import AllCourses from "../components/all_courses/AllCourses";
 import NewCourse from "../components/new_course/NewCourse";
+import CourseDetail from "../components/course_detail/CourseDetail";
 export default class ReduxProvider extends Component {
     constructor(props) {
         super(props);
@@ -25,8 +27,14 @@ export default class ReduxProvider extends Component {
                         <Route exact path="/">
                             <Home />
                         </Route>
+                        <Route exact path="/all-courses">
+                            <AllCourses />
+                        </Route>
                         <Route path="/new-course">
                             <NewCourse />
+                        </Route>
+                        <Route path="/course-detail">
+                            <CourseDetail />
                         </Route>
                         <Route path="/editor">
                             <div style={{ height: "100%" }}>
