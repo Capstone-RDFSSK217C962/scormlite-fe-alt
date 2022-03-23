@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 import GlobalConfig from '../global_config/GlobalConfig';
@@ -28,8 +29,7 @@ export default class EditorNavBar extends Component {
     render() {
         return (
             <Col id="iconBar">
-                <div className="grad1" />
-                <div className="identity"><span className="highlight">ED</span>iphy</div>
+                <div className="identity"> <Link to="/course-detail"><span>&#8592; Kembali</span></Link></div>
                 <PluginsMenu category={this.props.category} hideTab={this.props.hideTab} setcat={this.props.setcat} />
                 <NavActionButtons boxSelected={this.props.boxSelected}
                     changeGlobalConfig={this.props.changeGlobalConfig}

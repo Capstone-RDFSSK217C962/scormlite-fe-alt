@@ -27,7 +27,7 @@ export default class TemplatesModal extends Component {
         return (
             <Modal className="pageModal" id="TemplatesModal" show={this.props.show}>
                 <Modal.Header>
-                    <Modal.Title><span id="previewTitle">Elige una plantilla</span></Modal.Title>
+                    <Modal.Title><span id="previewTitle">Tambah Halaman</span></Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="gcModalBody" style={{ overFlowY: 'auto' }}>
                     <div className="items_container">
@@ -66,13 +66,13 @@ export default class TemplatesModal extends Component {
                 <Modal.Footer>
                     <Button bsStyle="default" id="import_file_button" onClick={ e => {
                         this.closeModal(); e.preventDefault();
-                    }}>{i18n.t("importFile.footer.cancel")}</Button>
+                    }}>Batal</Button>
                     <Button bsStyle="primary" id="cancel_button" onClick={ (e) => {
                         this.AddNavItem(this.state.itemSelected); e.preventDefault(); e.stopPropagation();
                     }} onDoubleClick={ (e) => {
                         // this.AddNavItem(this.state.itemSelected);
                         e.preventDefault(); e.stopPropagation();
-                    }}>{i18n.t("importFile.footer.ok")}</Button>
+                    }}>Tambah</Button>
                 </Modal.Footer>
             </Modal>
         );

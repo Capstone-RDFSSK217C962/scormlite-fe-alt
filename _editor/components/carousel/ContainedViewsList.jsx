@@ -10,7 +10,7 @@ export default class ContainedViewsList extends Component {
     render() {
         let containedViewsIncluded = Object.keys(this.props.containedViews).length > 0;
         return (<div className="containedViewsList" style={{ height: (this.props.showContainedViews) ? ((this.props.showSortableItems) ? "calc(50% - 126px)" : "calc(100% - 126px)") : "0px",
-            display: 'block', overflowY: 'auto', overflowX: 'hidden' }}>
+            display: 'none', overflowY: 'auto', overflowX: 'hidden' }}>
             <div className="empty-info" style={{ display: (containedViewsIncluded) ? "none" : "block" }}>{i18n.t("empty.cv_empty")}</div>
 
             {
