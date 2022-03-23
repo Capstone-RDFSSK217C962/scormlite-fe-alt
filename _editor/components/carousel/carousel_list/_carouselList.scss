@@ -49,7 +49,7 @@
 }
 
 .classIndexSelected i, .classIndexSelected .actualSectionTitle {
-    color: $blueprimary;
+    color: #333333;
 }
 
 ///*NavItem Selected*/
@@ -104,7 +104,7 @@
 
 /*Wrapper for the whole component including tab*/
 .wrapperCarousel {
-    background-color: $darkest;
+    // background-color: $darkest;
     margin: 0;
     //padding: 8px 0px 4px 0px;
     width: 100%;
@@ -291,7 +291,7 @@
     -ms-transition: height .25s  ease-in-out;
     -o-transition: height .25s  ease-in-out;
     transition: height .25s  ease-in-out;
-    background-color: #444;
+    // background-color: #444;
     .empty-info{
       margin: 40px;
       text-align: center;

@@ -1,7 +1,7 @@
 
 .carousselContainer {
   box-sizing: border-box;
-  background-color: #444;
+  // background-color: #444;
   width: 100%;
   color: white;
   display: flex;
@@ -17,7 +17,7 @@
   }
 
   &.selected {
-    background-color: #222;
+    background-color: #E5E8F2;
   }
 
   .body {

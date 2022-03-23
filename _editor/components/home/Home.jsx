@@ -51,7 +51,7 @@ function Home() {
                     </Link>
                 </div>
                 <h2>Courses Terbaru</h2>
-                {/* <Link to="/editor">Test Open Editor</Link> */}
+                <Link to="/editor">Test Open Editor</Link>
                 <CourseCard coursesArrayObject={courses} />
                 {/* <Card courses={courses} /> */}
             </div>
