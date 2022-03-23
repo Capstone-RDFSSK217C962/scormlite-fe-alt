@@ -72,6 +72,7 @@ export default class Toolbar extends Component {
                 style={{
                     right: '0px',
                     top: this.props.top,
+                    opacity: '0',
                 }}>
                 <div className="pestana" id="toolbarFlap"
                     onClick={() => {
