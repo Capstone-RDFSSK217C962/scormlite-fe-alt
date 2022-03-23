@@ -23,7 +23,7 @@ export default class EditorIndexTitle extends Component {
         this.state = {
             editing: false,
             secondClick: this.props.selected === this.props.id,
-            currentValue: (this.props.courseTitle && this.props.title === undefined) ? i18n.t('Title_document') : this.props.title,
+            currentValue: (this.props.courseTitle && this.props.title === undefined) ? "Judul dokumen" : this.props.title,
         };
     }
 

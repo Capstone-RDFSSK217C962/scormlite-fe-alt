@@ -29,29 +29,29 @@ export default class PluginsMenu extends Component {
         let categories = [
             {
                 name: 'image',
-                displayName: i18n.t("Images"),
+                displayName: "Gambar",
                 icon: 'image',
             },
             {
                 name: 'text',
-                displayName: i18n.t("Text"),
+                displayName: "Teks",
                 icon: 'text_fields',
             },
-            {
-                name: 'multimedia',
-                displayName: i18n.t("Multimedia"),
-                icon: 'play_circle_outline',
-            },
-            {
-                name: 'objects',
-                displayName: i18n.t("Objects"),
-                icon: 'unarchive',
-            },
-            {
-                name: 'evaluation',
-                displayName: i18n.t("Evaluation"),
-                icon: 'school',
-            },
+            // {
+            //     name: 'multimedia',
+            //     displayName: i18n.t("Multimedia"),
+            //     icon: 'play_circle_outline',
+            // },
+            // {
+            //     name: 'objects',
+            //     displayName: i18n.t("Objects"),
+            //     icon: 'unarchive',
+            // },
+            // {
+            //     name: 'evaluation',
+            //     displayName: i18n.t("Evaluation"),
+            //     icon: 'school',
+            // },
 
         ];
         return (
