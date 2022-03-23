@@ -1,4 +1,4 @@
-.wrapper 
+.wrapperDetail
 {
   display: flex;
   align-items: center;
@@ -6,6 +6,8 @@
   border: 1px solid #e5e8f2;
   border-radius: 20px;
   height: 500px;
+  width: 100%;
+  margin-top: 16px;
 }
 
 .emptyStateContainer

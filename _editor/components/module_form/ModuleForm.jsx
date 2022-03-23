@@ -5,7 +5,7 @@ import "./ModuleForm.module.scss";
 
 export const ModuleForm = () => {
     return (
-        <div className="wrapper">
+        <div className="wrapperDetail">
             <div className="emptyStateContainer">
                 <div className="faceIcon" />
                 <h3>Course masih kosong, tambahkan modul sekarang!</h3>

@@ -5,9 +5,10 @@ import './Header.module.scss';
 function Header() {
     return (
         <div className="headerContainer">
+            <div className="appName">Scorm Lite</div>
             <div className="headerWrapper">
                 <div className="title">
-                    <h2>Jennie</h2>
+                    <span>Brenda</span>
                 </div>
                 <div className="profile" />
             </div>
