@@ -8,10 +8,11 @@
   	}
 
     .modal-header {
+      display: flex;
+      justify-content: center;
       border-radius:0;
       font-size: 1.1em;
-      color: white;
-      background-color: $greyPanelHeadings;
+      color: #3D5AFE;
       margin: -1px;
       .modal-title{
         margin: 0;

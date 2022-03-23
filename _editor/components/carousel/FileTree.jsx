@@ -174,7 +174,7 @@ class FileTree extends Component {
                         </div>
                     </section>
                 </div>
-                <div id="scontainedViewsCollapse" style={{ height: "20px", backgroundColor: "black", marginBottom: "2px", paddingLeft: "10px", cursor: 'pointer' }} onClick={()=> {
+                <div id="scontainedViewsCollapse" style={{ height: "20px", backgroundColor: "black", marginBottom: "2px", paddingLeft: "10px", cursor: 'pointer', opacity: '0' }} onClick={()=> {
                     this.setState({ showContainedViews: !this.state.showContainedViews });
                 }}>
                     {(this.state.showContainedViews) ?
