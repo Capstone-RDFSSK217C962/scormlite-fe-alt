@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import Router from 'next/router'
 
 import Header from "../header/Header";
 import DashboardNavbar from "../dashboard_navbar/DashboardNavbar";
 import RecentCourses from "../course_card/CourseCard";
-// import RecentCourse
 
 import "../home/Home.module.scss";
 import CourseCard from "../course_card/CourseCard";
