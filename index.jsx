@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { Router } from 'react-router-dom';
+// import history from './common/history';
 import sortable from 'jquery-ui/ui/widgets/sortable';
 import ReduxProvider from './_editor/containers/ReduxProvider';
+// import App from './_editor/containers/AppProvider';
+
 // It appears as unused, but it IS used.
 // import i18n from './locales/i18n';
 
@@ -17,4 +20,4 @@ import './sass/style.scss';
 // eslint-disable-next-line
 new sortable();
 
-ReactDOM.render((<ReduxProvider />), document.getElementById('root'));
+ReactDOM.render(<ReduxProvider />, document.getElementById('root'));

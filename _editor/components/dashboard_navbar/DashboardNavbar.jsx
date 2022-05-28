@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import styles from "./DashboardNavbar.module.scss";
+import styles from './DashboardNavbar.module.scss';
 
 function DashboardNavbar() {
     return (
@@ -9,16 +9,13 @@ function DashboardNavbar() {
             <div className="wrapperNavbar">
                 <ul>
                     <Link to="/">
-                        <li>
-                            <div className="dashboardIcon" />
-                            <a>Dashboard</a>
-                        </li>
+                        <div className="dashboardIcon">Dashboard</div>
                     </Link>
                     <Link to="/all-courses">
-                        <li>
-                            <div className="coursesIcon" />
-                            <a>Semua Courses</a>
-                        </li>
+                        <div className="coursesIcon">Semua Courses</div>
+                    </Link>
+                    <Link to="/login">
+                        <div className="coursesIcon">Login</div>
                     </Link>
                 </ul>
             </div>
