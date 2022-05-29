@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { lazy, useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import './App.css';
@@ -119,13 +119,13 @@ export default function App() {
 
             <div className="container mt-3">
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/all-courses" element={<AllCourses />} />
-                    <Route path="/new-course" element={<NewCourse />} />
-                    <Route path="/course-detail" element={<CourseDetail />} />
+                    <Route path="/" component={<Home />} />
+                    <Route path="/home" component={<Home />} />
+                    <Route path="/login" component={<Login />} />
+                    <Route path="/register" component={<Register />} />
+                    <Route path="/all-courses" component={<AllCourses />} />
+                    <Route path="/new-course" component={<NewCourse />} />
+                    <Route path="/course-detail" component={<CourseDetail />} />
                     {/* <Route path="/profile" element={<Profile />} />
 					<Route path="/user" element={<BoardUser />} />
 					<Route path="/mod" element={<BoardModerator />} />

@@ -9,6 +9,9 @@ import thunkMiddleware from 'redux-thunk';
 import Ediphy from '../../core/editor/main';
 import Home from '../components/home/Home';
 import Login from '../components/auth/Login';
+import AllCourses from '../components/all_courses/AllCourses';
+import NewCourse from '../components/new_course/NewCourse';
+import CourseDetail from '../components/course_detail/CourseDetail';
 
 export default class ReduxProvider extends Component {
     constructor(props) {
@@ -34,6 +37,15 @@ export default class ReduxProvider extends Component {
                                 <EditorApp id="app" store={this.store} />
                                 {process.env.NODE_ENV === 'production' ? null : <DevTools />}
                             </div>
+                        </Route>
+                        <Route path="/all-courses">
+                            <AllCourses />
+                        </Route>
+                        <Route path="/new-courses">
+                            <NewCourse />
+                        </Route>
+                        <Route path="/course-detail">
+                            <CourseDetail/>
                         </Route>
                     </Switch>
                 </Router>
