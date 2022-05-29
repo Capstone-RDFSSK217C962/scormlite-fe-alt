@@ -13,7 +13,7 @@ export default {
     scorm_zip_2004: "./lib/scorm/scorm2004.zip",
     scorm_zip_12: "./lib/scorm/scorm1.2.zip",
     visor_zip: "./lib/visor/dist.zip",
-    export_url: false,
+    export_url: "/ediphy_documents/",
     import_url: false,
     search_vish_url: "https://vishub.org/apis/search/",
     upload_vish_url: false,

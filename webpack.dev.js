@@ -34,5 +34,6 @@ module.exports = merge.smart(common, {
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
+        historyApiFallback: true,
     },
 });
