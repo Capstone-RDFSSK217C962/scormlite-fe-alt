@@ -41,7 +41,7 @@ export default class ReduxProvider extends Component {
                         <Route path="/all-courses">
                             <AllCourses />
                         </Route>
-                        <Route path="/new-courses">
+                        <Route path="/new-course">
                             <NewCourse />
                         </Route>
                         <Route path="/course-detail">
