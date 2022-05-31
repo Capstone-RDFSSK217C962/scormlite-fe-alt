@@ -14,9 +14,6 @@ function DashboardNavbar() {
                     <Link to="/all-courses">
                         <div className="coursesIcon">Semua Courses</div>
                     </Link>
-                    <Link to="/login">
-                        <div className="coursesIcon">Login</div>
-                    </Link>
                 </ul>
             </div>
         </div>

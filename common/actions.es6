@@ -387,8 +387,6 @@ export function exportStateAsync(state, win = null, url = null) {
             ediphy_document: { user: { name: ediphy_editor_params.name, id: ediphy_editor_params.id }, json: exportedState },
         };
 
-        console.log(data);
-
         return fetch(ediphy_editor_params.export_url, { // return fetch(Ediphy.Config.export_url, {
             credentials: 'same-origin',
             method: 'POST',

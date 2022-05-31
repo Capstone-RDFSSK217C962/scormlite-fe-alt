@@ -4,7 +4,6 @@ import "./CourseCard.module.scss";
 function CourseCard(props) {
     return (
         <div className="cardWrapper">
-            {console.log(props.coursesArrayObject)}
             {props.coursesArrayObject.map((course) => {
                 return (
                     <div key={course.id} className="cardContainer">

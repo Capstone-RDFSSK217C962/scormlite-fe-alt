@@ -10,7 +10,6 @@ import Header from '../header/Header';
 function DashboardLayout() {
     return (
         <div >
-            <Header/>
             {props.children}
         </div>
     );
