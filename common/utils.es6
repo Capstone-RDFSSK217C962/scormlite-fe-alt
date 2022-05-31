@@ -1,3 +1,4 @@
+import AuthService from '../_editor/components/auth/auth.service';
 import { ID_PREFIX_BOX, ID_PREFIX_PAGE, ID_PREFIX_SECTION, ID_PREFIX_SORTABLE_BOX, ID_PREFIX_FILE,
     ID_PREFIX_CONTAINED_VIEW, ID_PREFIX_SORTABLE_CONTAINER, PAGE_TYPES } from './constants';
 
@@ -7,6 +8,16 @@ export default {
         return myObj ? JSON.parse(JSON.stringify(myObj)) : myObj;
     },
 };
+
+export function capitalize(text) {
+    return text.toLowerCase().replace(/\b(\w)/g, (result) => result.toUpperCase());
+}
+
+export function isLoggedIn() {
+    const user = AuthService.getCurrentUser();
+    if (user) {return true;}
+    return false;
+}
 
 export function isView(id) {
     return isPage(id) || isSection(id);

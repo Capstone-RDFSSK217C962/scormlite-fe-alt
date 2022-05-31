@@ -12,7 +12,6 @@ import "./NewCourse.module.scss";
 function NewCourse() {
     return (
         <div>
-            <Header />
             <DashboardNavbar />
             <div className="container contentwrapper">
                 <h2>Tambah Course</h2>

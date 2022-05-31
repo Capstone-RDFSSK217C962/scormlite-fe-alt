@@ -68,7 +68,6 @@ function AllCourses() {
 
     return (
         <div>
-            <Header />
             <DashboardNavbar />
             <div className="container contentwrapper">
                 <h2>Semua Course</h2>
