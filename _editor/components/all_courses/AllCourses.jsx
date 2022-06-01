@@ -67,7 +67,7 @@ function AllCourses() {
     ];
 
     return (
-        <div>
+        <div style={{ display: 'flex' }}>
             <DashboardNavbar />
             <div className="container contentwrapper">
                 <h2>Semua Course</h2>

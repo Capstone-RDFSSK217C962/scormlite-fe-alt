@@ -57,9 +57,32 @@
     right:20px;
 }
 
-.image{
+.image
+{
     width: 40px;
     height:40px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.chevronUp
+{
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  background-position: center center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-image: url("../../../dist/images/chevronUp.svg");
+}
+
+.chevronDown
+{
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  background-position: center center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-image: url("../../../dist/images/chevronDown.svg");
 }
