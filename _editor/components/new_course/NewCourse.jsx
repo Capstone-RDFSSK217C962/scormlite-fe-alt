@@ -11,7 +11,7 @@ import "./NewCourse.module.scss";
 
 function NewCourse() {
     return (
-        <div>
+        <div style={{ display: 'flex' }}>
             <DashboardNavbar />
             <div className="container contentwrapper">
                 <h2>Tambah Course</h2>

@@ -37,7 +37,7 @@ export default class Home extends Component {
         const { courses } = this.state;
 
         return (
-            <div>
+            <div style={{ display: 'flex' }}>
                 <DashboardNavbar />
                 <div className="container contentwrapper">
                     <h2>Dashboard</h2>

@@ -12,7 +12,7 @@ import "../course_card/CourseCard.module.scss";
 
 function CourseDetail() {
     return (
-        <div>
+        <div style={{ display: 'flex' }}>
             <DashboardNavbar />
             <div className="container contentwrapper">
                 <h2>Cloud Computing (TKIT1234)</h2>

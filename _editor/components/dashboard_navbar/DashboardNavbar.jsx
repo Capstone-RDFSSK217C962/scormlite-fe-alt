@@ -9,10 +9,10 @@ function DashboardNavbar() {
             <div className="wrapperNavbar">
                 <ul>
                     <Link to="/">
-                        <div className="dashboardIcon">Dashboard</div>
+                        <div className="dashboardIcon"><span>Dashboard</span></div>
                     </Link>
                     <Link to="/all-courses">
-                        <div className="coursesIcon">Semua Courses</div>
+                        <div className="coursesIcon"><span>Semua Courses</span></div>
                     </Link>
                 </ul>
             </div>

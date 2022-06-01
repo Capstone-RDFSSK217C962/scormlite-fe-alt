@@ -1,12 +1,12 @@
 /* eslint-disable consistent-return */
-import React, { Component } from 'react';
-import Form from 'react-validation/build/form';
-import Input from 'react-validation/build/input';
-import CheckButton from 'react-validation/build/button';
-import { isEmail } from 'validator';
-import { withRouter, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import { isEmail } from "validator";
+import { withRouter, Link } from "react-router-dom";
 
-import AuthService from './auth.service';
+import AuthService from "./auth.service";
 
 const required = (value) => {
     if (!value) {
@@ -59,13 +59,13 @@ class Register extends Component {
         this.onChangePassword = this.onChangePassword.bind(this);
 
         this.state = {
-            username: '',
-            firstname: '',
-            lastname: '',
-            email: '',
-            password: '',
+            username: "",
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "",
             successful: false,
-            message: '',
+            message: "",
         };
     }
 
@@ -103,7 +103,7 @@ class Register extends Component {
         e.preventDefault();
 
         this.setState({
-            message: '',
+            message: "",
             successful: false,
         });
 
@@ -123,7 +123,7 @@ class Register extends Component {
                         successful: true,
                     });
                     // eslint-disable-next-line react/prop-types
-                    this.props.history.push('login');
+                    this.props.history.push("login");
                     window.location.reload();
                 },
                 (error) => {
@@ -145,111 +145,133 @@ class Register extends Component {
 
     render() {
         return (
-            <div className="col-md-12">
-                <div className="card card-container">
-
-                    <Form
-                        onSubmit={this.handleRegister}
-                        ref={(c) => {
-                            this.form = c;
-                        }}
-                    >
-                        {!this.state.successful && (
-                            <div>
-                                <div className="form-group">
-                                    <label htmlFor="username">Username</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="username"
-                                        value={this.state.username}
-                                        onChange={this.onChangeUsername}
-                                        validations={[required, vname]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="username">First Name</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="firstname"
-                                        value={this.state.firstname}
-                                        onChange={this.onChangeFirstname}
-                                        validations={[required, vname]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="lastname">Last Name</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="lastname"
-                                        value={this.state.lastname}
-                                        onChange={this.onChangeLastname}
-                                        validations={[required, vname]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="email">Email</label>
-                                    <Input
-                                        type="text"
-                                        className="form-control"
-                                        name="email"
-                                        value={this.state.email}
-                                        onChange={this.onChangeEmail}
-                                        validations={[required, email]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="password">Password</label>
-                                    <Input
-                                        type="password"
-                                        className="form-control"
-                                        name="password"
-                                        value={this.state.password}
-                                        onChange={this.onChangePassword}
-                                        validations={[required, vpassword]}
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <button className="btn btn-primary btn-block">Sign Up</button>
-                                </div>
-                            </div>
-                        )}
-
-                        {this.state.message && (
-                            <div className="form-group">
-                                <div
-                                    className={
-                                        this.state.successful
-                                            ? 'alert alert-success'
-                                            : 'alert alert-danger'
-                                    }
-                                    role="alert"
-                                >
-                                    {this.state.message}
-                                </div>
-                            </div>
-                        )}
-
-                        <CheckButton
-                            style={{ display: 'none' }}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+                <div
+                    className="col-md-4"
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                    }}
+                >
+                    <h2 style={{ textAlign: "center" }}>Daftar</h2>
+                    <div className="card card-container">
+                        <Form
+                            onSubmit={this.handleRegister}
                             ref={(c) => {
-                                this.checkBtn = c;
+                                this.form = c;
                             }}
-                        />
-                    </Form>
-                    <div className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <Link to={'/login'} className="nav-link">
-										Login
+                        >
+                            {!this.state.successful && (
+                                <div>
+                                    <div className="form-group">
+                                        <label htmlFor="username">Username</label>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="username"
+                                            value={this.state.username}
+                                            onChange={this.onChangeUsername}
+                                            validations={[required, vname]}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="username">First Name</label>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="firstname"
+                                            value={this.state.firstname}
+                                            onChange={this.onChangeFirstname}
+                                            validations={[required, vname]}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="lastname">Last Name</label>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="lastname"
+                                            value={this.state.lastname}
+                                            onChange={this.onChangeLastname}
+                                            validations={[required, vname]}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="email">Email</label>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="email"
+                                            value={this.state.email}
+                                            onChange={this.onChangeEmail}
+                                            validations={[required, email]}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="password">Password</label>
+                                        <Input
+                                            type="password"
+                                            className="form-control"
+                                            name="password"
+                                            value={this.state.password}
+                                            onChange={this.onChangePassword}
+                                            validations={[required, vpassword]}
+                                        />
+                                    </div>
+
+                                    <div
+                                        className="form-group"
+                                        style={{ display: "flex", justifyContent: "center" }}
+                                    >
+                                        <button
+                                            style={{
+                                                backgroundColor: "#3D5AFE",
+                                                padding: "10px",
+                                                borderRadius: "10px",
+                                                borderColor: "#3D5AFE",
+                                                width: "20%",
+                                            }}
+                                            className="btn btn-primary btn-block"
+                                        >
+                      Daftar
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {this.state.message && (
+                                <div className="form-group">
+                                    <div
+                                        className={
+                                            this.state.successful
+                                                ? "alert alert-success"
+                                                : "alert alert-danger"
+                                        }
+                                        role="alert"
+                                    >
+                                        {this.state.message}
+                                    </div>
+                                </div>
+                            )}
+
+                            <CheckButton
+                                style={{ display: "none" }}
+                                ref={(c) => {
+                                    this.checkBtn = c;
+                                }}
+                            />
+                        </Form>
+                        <div className="navbar-nav ml-auto" style={{ display: "flex", justifyContent: "center", width: "100%", marginTop: "10px" }}>
+              Sudah punya akun?
+                            <Link to={"/login"} className="nav-link" style={{ marginLeft: "5px" }}>
+                Masuk
                             </Link>
-                        </li>
+                        </div>
                     </div>
                 </div>
             </div>
