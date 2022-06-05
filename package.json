@@ -9,10 +9,10 @@
     "url": "git://github.com/ging/ediphy.git"
   },
   "scripts": {
-    "build-production": "cat ediphy && webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
-    "build": "cat ediphy && node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
-    "build-dev": "cat ediphy && webpack --config webpack.dev.js",
-    "start": "cat ediphy && webpack-dev-server --open --colors --config webpack.dev.js --history-api-fallback",
+    "build-production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "build": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
+    "build-dev": "webpack --config webpack.dev.js",
+    "start": "webpack-dev-server --open --colors --config webpack.dev.js --history-api-fallback",
     "bundle": "webpack && node bundle_script.js",
     "both": "npm run start-webpack & npm run watch-sass",
     "start-webpack": "webpack-dev-server --progress",
@@ -23,9 +23,9 @@
     "test:coverage": "jest --watch --colors --coverage --verbose || true",
     "test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "eslint": "eslint . --fix --ext .js,.jsx,.es6",
-    "doc": "cat ediphy && babel-node --presets es2015 doc/scripts/reactdocgenmd.js & node doc/scripts/importComponents.js & webpack --config doc/webpack.doc.prod.js & webpack -p --config webpack.noserver.js & node doc/scripts/bringtodist.js",
-    "dev-doc": "cat ediphy && babel-node --presets es2015  doc/scripts/reactdocgenmd.js & node doc/scripts/importComponents.js &  webpack --config webpack.noserver.js & node doc/scripts/bringtodist.js & webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
-    "dev-only-doc": "cat ediphy && webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
+    "doc": "babel-node --presets es2015 doc/scripts/reactdocgenmd.js & node doc/scripts/importComponents.js & webpack --config doc/webpack.doc.prod.js & webpack -p --config webpack.noserver.js & node doc/scripts/bringtodist.js",
+    "dev-doc": "babel-node --presets es2015  doc/scripts/reactdocgenmd.js & node doc/scripts/importComponents.js &  webpack --config webpack.noserver.js & node doc/scripts/bringtodist.js & webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
+    "dev-only-doc": "webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
     "add-all": "git add .",
     "create-plugin": "babel-node plugins/create_plugin.js "
   },
