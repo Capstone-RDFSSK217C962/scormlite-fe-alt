@@ -10,10 +10,13 @@ import './_navBar.scss';
 import screenfull from 'screenfull';
 import { selectNavItem } from "../../../../common/actions";
 import ExportModal from '../export/ExportModal';
+import { withRouter } from 'react-router-dom';
+/* eslint-disable react/prop-types */
+
 /**
  * Upper navigation bar component
  */
-export default class EditorNavBar extends Component {
+class EditorNavBar extends Component {
     constructor(props) {
         super(props);
 
@@ -24,12 +27,17 @@ export default class EditorNavBar extends Component {
         };
 
         this.toggleExport = this.toggleExport.bind(this);
+        this.goBack = this.goBack.bind(this);
+    }
+
+    goBack() {
+        this.props.history.goBack();
     }
 
     render() {
         return (
             <Col id="iconBar">
-                <div className="identity"> <Link to="/course-detail"><span>&#8592; Kembali</span></Link></div>
+                <div className="identity"> <button onClick={this.goBack}><span>&#8592; Kembali</span></button></div>
                 <PluginsMenu category={this.props.category} hideTab={this.props.hideTab} setcat={this.props.setcat} />
                 <NavActionButtons boxSelected={this.props.boxSelected}
                     changeGlobalConfig={this.props.changeGlobalConfig}
@@ -219,3 +227,5 @@ EditorNavBar.propTypes = {
  *      shownCondition [func],}]
  *  }
  * */
+
+export default withRouter(EditorNavBar);
