@@ -1,8 +1,8 @@
 {
-  "name": "ediphy",
+  "name": "scormlite-fe",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "",
+  "author": "Scorm Lite Capstone Team",
   "license": "ISC",
   "repository": {
     "type": "git",
