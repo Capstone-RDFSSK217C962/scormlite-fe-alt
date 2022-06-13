@@ -1,26 +1,36 @@
-import React from "react";
+import React, { Component } from "react";
 import "./CourseCard.module.scss";
+import { Link } from "react-router-dom";
 
-function CourseCard(props) {
-    return (
-        <div className="cardWrapper">
-            {props.coursesArrayObject.map((course) => {
-                return (
-                    <div key={course.id} className="cardContainer">
-                        <p className="courseName">{course.name}</p>
-                        <p className="courseInfo">
-                            <span className="courseID">{course.id}</span> -
-                            <span className="courseDuration"> {course.duration}</span>
-                        </p>
-                        <div className="courseFooter">
-                            <div className="courseStatus">{course.status}</div>
-                            <button className="courseDetail">Lihat Detail</button>
+class CourseCard extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+
+        return (
+            <div className="cardWrapper">
+                {this.props.courses.map((course) => {
+                    return (
+                        <div key={course.id} className="cardContainer">
+                            <p className="courseName">{course.title}</p>
+                            <p className="courseInfo">
+                                <span className="courseID">{course.code}</span> -
+                                <span className="courseDuration"> {course.duration}</span>
+                            </p>
+                            <div className="courseFooter">
+                                <div className="courseStatus">{course.desc}</div>
+                                <Link to={`/courses/${course.id}`}>
+                                    <button className="courseDetail">Lihat Detail</button>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
-        </div>
-    );
+                    );
+                })}
+            </div>
+        );}
 }
 
 export default CourseCard;

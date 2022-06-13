@@ -67,7 +67,7 @@ class Login extends Component {
             AuthService.login(this.state.username, this.state.password).then(
                 () => {
                     // eslint-disable-next-line react/prop-types
-                    this.props.history.push("/all-courses");
+                    this.props.history.push('/courses');
                     window.location.reload();
                 },
                 (error) => {

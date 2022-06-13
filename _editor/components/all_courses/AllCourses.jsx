@@ -1,80 +1,56 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
 
-import Header from "../header/Header";
 import DashboardNavbar from "../dashboard_navbar/DashboardNavbar";
-import RecentCourses from "../course_card/CourseCard";
-
-import "../home/Home.module.scss";
 import CourseCard from "../course_card/CourseCard";
+import CourseService from "../course_card/course.service";
+import "../home/Home.module.scss";
 
-function AllCourses() {
-    const courses = [
-        {
-            id: "TKIT1234",
-            name: "Cloud Computing",
-            duration: "14 Pertemuan",
-            status: "Draf",
-        },
-        {
-            id: "TKIT7842",
-            name: "Software Architecture",
-            duration: "14 Pertemuan",
-            status: "Draf",
-        },
-        {
-            id: "TKIT2343",
-            name: "User Experience",
-            duration: "14 Minggu",
-            status: "Draf",
-        },
-        {
-            id: "TKIT1234",
-            name: "Cloud Computing",
-            duration: "14 Pertemuan",
-            status: "Draf",
-        },
-        {
-            id: "TKIT7842",
-            name: "Software Architecture",
-            duration: "14 Pertemuan",
-            status: "Draf",
-        },
-        {
-            id: "TKIT2343",
-            name: "User Experience",
-            duration: "14 Minggu",
-            status: "Draf",
-        },
-        {
-            id: "TKIT1234",
-            name: "Cloud Computing",
-            duration: "14 Pertemuan",
-            status: "Draf",
-        },
-        {
-            id: "TKIT7842",
-            name: "Software Architecture",
-            duration: "14 Pertemuan",
-            status: "Draf",
-        },
-        {
-            id: "TKIT2343",
-            name: "User Experience",
-            duration: "14 Minggu",
-            status: "Draf",
-        },
-    ];
+class AllCourses extends Component {
 
-    return (
-        <div style={{ display: 'flex' }}>
-            <DashboardNavbar />
-            <div className="container contentwrapper">
-                <h2>Semua Course</h2>
-                <CourseCard coursesArrayObject={courses} />
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            courses: [],
+        };
+    }
+
+    componentDidMount() {
+        CourseService.getAllCourses().then(
+            response => {
+                this.setState({
+                    courses: response.data,
+                });
+            },
+            error => {
+                this.setState({
+                    courses:
+                  (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                  error.message ||
+                  error.toString(),
+                });
+
+                if (error.response && error.response.status === 401) {
+                    EventBus.dispatch("logout");
+                }
+            }
+        );
+    }
+
+    render() {
+        const { courses } = this.state;
+
+        return (
+            <div style={{ display: 'flex' }}>
+                <DashboardNavbar />
+                <div className="container contentwrapper">
+                    <h2>Semua Course</h2>
+                    <CourseCard courses={courses ? courses : []} />
+                </div>
             </div>
-        </div>
-    );
-}
+        );
+    }}
 
 export default AllCourses;
