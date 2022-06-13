@@ -52,6 +52,9 @@ import Cookies from 'universal-cookie';
 import ExitModal from "../components/exit_modal/ExitModal";
 import { DragDropContext } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
+import { withRouter } from 'react-router-dom';
+import CourseService from '../components/course_card/course.service';
+
 const cookies = new Cookies();
 
 /**
@@ -198,7 +201,7 @@ class EditorApp extends Component {
                         onExternalCatalogToggled={() => this.setState({ catalogModal: true })}
                         setcat={(category) => {this.setState({ pluginTab: category, hideTab: 'show' });}}/>
                     {Ediphy.Config.autosave_time > 1000 &&
-                    <AutoSave save={() => {dispatch(exportStateAsync({ ...this.props.store.getState() }));}}
+                    <AutoSave save={() => {dispatch(exportStateAsync(this.props.match.params.id, { ...this.props.store.getState() }));}}
                         isBusy={isBusy}
                         lastAction={lastActionDispatched}
                         visorVisible={this.state.visorVisible}/>})
@@ -654,6 +657,18 @@ class EditorApp extends Component {
      * Loads plugin API and sets listeners for plugin events, marks and keyboard keys pressed
      */
     componentDidMount() {
+
+        CourseService.getCourseById(this.props.match.params.id).then(
+            response => {
+                if ('module' in response.data) {
+                    this.props.dispatch(importState(serialize(response.data.module.undoGroup)));
+                }
+            },
+            error => {
+                return error;
+            }
+        );
+
         if (process.env.NODE_ENV === 'production' && process.env.DOC !== 'doc' && ediphy_editor_json && ediphy_editor_json !== 'undefined') {
             this.props.dispatch(importState(serialize(JSON.parse(ediphy_editor_json))));
 
@@ -965,7 +980,7 @@ function mapStateToProps(state) {
 }
 
 // EditorApp = DragDropContext(HTML5Backend)(EditorApp);
-export default connect(mapStateToProps)(EditorApp);
+export default connect(mapStateToProps)(withRouter(EditorApp));
 
 // export default DragDropContext(HTML5Backend)(connect(mapStateToProps)(EditorApp));
 
@@ -994,4 +1009,9 @@ EditorApp.propTypes = {
     lastActionDispatched: PropTypes.string,
     status: PropTypes.string,
     everPublished: PropTypes.bool,
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            id: PropTypes.any,
+        }),
+    }),
 };

@@ -57,5 +57,26 @@
   color: #FFFFFF;
   padding: 12px 24px;
   cursor: pointer;
+}
 
+.editCourseIcon
+{
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  background-position: center center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-image: url("../../../dist/images/editCourseIcon.svg");
+}
+
+.deleteCourseIcon
+{
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  background-position: center center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-image: url("../../../dist/images/trash.svg");
 }

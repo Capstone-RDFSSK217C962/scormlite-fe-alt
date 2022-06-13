@@ -11,7 +11,7 @@ function DashboardNavbar() {
                     <Link to="/">
                         <div className="dashboardIcon"><span>Dashboard</span></div>
                     </Link>
-                    <Link to="/all-courses">
+                    <Link to="/courses">
                         <div className="coursesIcon"><span>Semua Courses</span></div>
                     </Link>
                 </ul>

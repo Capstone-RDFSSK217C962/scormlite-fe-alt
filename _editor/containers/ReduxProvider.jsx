@@ -13,7 +13,8 @@ import Home from '../components/home/Home';
 import Login from '../components/auth/Login';
 import Register from '../components/auth/Register';
 import AllCourses from '../components/all_courses/AllCourses';
-import NewCourse from '../components/new_course/NewCourse';
+import EditCourse from '../components/edit_course/EditCourse';
+import CreateCourse from '../components/create_course/CreateCourse';
 import CourseDetail from '../components/course_detail/CourseDetail';
 import Header from '../components/header/Header';
 import PrivateRoute from './privateRoute';
@@ -39,15 +40,16 @@ export default class ReduxProvider extends Component {
                         <PrivateRoute exact path={['/', 'home']} component={Home} />
                         <PublicRoute exact path="/login" component={Login} />
                         <PublicRoute exact path="/register" component={Register} />
-                        <PrivateRoute path="/editor">
+                        <PrivateRoute exact path="/courses" component={AllCourses} />
+                        <PrivateRoute exact path="/courses/create" component={CreateCourse} />
+                        <PrivateRoute exact path="/courses/edit/:id" component={EditCourse} />
+                        <PrivateRoute exact path="/courses/:id" component={CourseDetail} />
+                        <PrivateRoute exact path="/courses/editor/:id" >
                             <div style={{ height: '100%' }}>
                                 <EditorApp id="app" store={this.store} />
                                 {process.env.NODE_ENV === 'production' ? null : <DevTools />}
                             </div>
                         </PrivateRoute>
-                        <PrivateRoute path="/all-courses" component={AllCourses} />
-                        <PrivateRoute path="/new-course" component={NewCourse} />
-                        <PrivateRoute path="/course-detail" component={CourseDetail} />
                     </Switch>
                 </Router>
             </Provider>

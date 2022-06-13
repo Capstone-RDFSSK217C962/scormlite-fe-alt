@@ -4,6 +4,8 @@ import i18n from 'i18next';
 import { ID_PREFIX_FILE, FILE_UPLOAD_ERROR, FILE_UPLOADING, FILE_DELETING, FILE_DELETE_ERROR } from './constants';
 import { isDataURL } from './utils';
 import { serialize } from '../reducers/serializer';
+import CourseService from "../_editor/components/course_card/course.service";
+
 export const ADD_BOX = 'ADD_BOX';
 export const SELECT_BOX = 'SELECT_BOX';
 export const MOVE_BOX = 'MOVE_BOX';
@@ -346,7 +348,8 @@ export function deleteRemoteFileEdiphyAsync(id, url, callback) {
 }
 
 // Async actions
-export function exportStateAsync(state, win = null, url = null) {
+// Save redux state to db
+export function exportStateAsync(id, state, win = null, url = null) {
     return dispatch => {
         let exportedState = { present: { ...state.undoGroup.present,
             filesUploaded: state.filesUploaded, status: state.status, everPublished: state.everPublished } };
@@ -354,75 +357,87 @@ export function exportStateAsync(state, win = null, url = null) {
         // that the API call is starting.
         dispatch(setBusy(true, i18n.t("messages.operation_in_progress"), "saving_state"));
 
+        CourseService.updateState(id, state)
+            .then(
+                (response) => {
+                    return(response);
+                },
+                (error) => {
+                    return(error);
+                }
+            );
+
         // The function called by the thunk middleware can return a value,
         // that is passed on as the return value of the dispatch method.
 
         // In this case, we return a promise to wait for.
         // This is not required by thunk middleware, but it is convenient for us.
-        if (process.env.NODE_ENV !== 'production' || ediphy_editor_params === undefined) {
-            return fetch(Ediphy.Config.export_url, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(exportedState),
-            })
-                .then(response => {
-                    if (response.status >= 400) {
-                        throw new Error(i18n.t("error.exporting"));
-                    }
-                    return true;
-                })
-                .then(() => {
-                    dispatch(setBusy(false, i18n.t("success_transaction"), "saving_state"));
-                })
-                .catch(e => {
-                    dispatch(setBusy(false, i18n.t("error.exporting")));
-                });
-        }
 
-        let data = {
-            authenticity_token: ediphy_editor_params.authenticity_token,
-            ediphy_document: { user: { name: ediphy_editor_params.name, id: ediphy_editor_params.id }, json: exportedState },
-        };
+        // if (process.env.NODE_ENV !== 'production' || ediphy_editor_params === undefined) {
+        //     return fetch(Ediphy.Config.export_url, {
+        //         method: 'POST',
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(exportedState),
+        //     })
+        //         .then(response => {
+        //             if (response.status >= 400) {
+        //                 throw new Error(i18n.t("error.exporting"));
+        //             }
+        //             return true;
+        //         })
+        //         .then(() => {
+        //             dispatch(setBusy(false, i18n.t("success_transaction"), "saving_state"));
+        //         })
+        //         .catch(e => {
+        //             dispatch(setBusy(false, i18n.t("error.exporting")));
+        //         });
+        // }
 
-        return fetch(ediphy_editor_params.export_url, { // return fetch(Ediphy.Config.export_url, {
-            credentials: 'same-origin',
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(response => {
-                if (response.status >= 400) {
-                    throw new Error(i18n.t("error.exporting"));
-                }
-                return response.text();
-            })
-            .then(result => {
-                let ediphy_resource_id = JSON.parse(result).ediphy_id;
+        // let data = {
+        //     authenticity_token: ediphy_editor_params.authenticity_token,
+        //     ediphy_document: { user: { name: ediphy_editor_params.name, id: ediphy_editor_params.id }, json: exportedState },
+        // };
 
-                if (Ediphy.Config.api_editor_url_change) {
-                    window.parent.history.replaceState("", "", Ediphy.Config.export_url + ediphy_resource_id + ediphy_editor_params.edit_prefix);
-                    ediphy_editor_params.export_url = Ediphy.Config.export_url + ediphy_resource_id;
-                    ediphy_editor_params.ediphy_resource_id = ediphy_resource_id;
-                }
-                if(win !== null) {
-                    win.parent.location.href = url || ediphy_editor_params.export_url;
-                    win.focus();
-                }
-                dispatch(setBusy(false, i18n.t("success_transaction"), "saving_state"));
-            })
-            .catch(e =>{
-                dispatch(setBusy(false, i18n.t("error.exporting")));
-            });
+        // return fetch(ediphy_editor_params.export_url, { // return fetch(Ediphy.Config.export_url, {
+        //     credentials: 'same-origin',
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+        //     .then(response => {
+        //         if (response.status >= 400) {
+        //             throw new Error(i18n.t("error.exporting"));
+        //         }
+        //         return response.text();
+        //     })
+        //     .then(result => {
+        //         let ediphy_resource_id = JSON.parse(result).ediphy_id;
+
+        //         if (Ediphy.Config.api_editor_url_change) {
+        //             window.parent.history.replaceState("", "", Ediphy.Config.export_url + ediphy_resource_id + ediphy_editor_params.edit_prefix);
+        //             ediphy_editor_params.export_url = Ediphy.Config.export_url + ediphy_resource_id;
+        //             ediphy_editor_params.ediphy_resource_id = ediphy_resource_id;
+        //         }
+        //         if(win !== null) {
+        //             win.parent.location.href = url || ediphy_editor_params.export_url;
+        //             win.focus();
+        //         }
+        //         dispatch(setBusy(false, i18n.t("success_transaction"), "saving_state"));
+        //     })
+        //     .catch(e =>{
+        //         dispatch(setBusy(false, i18n.t("error.exporting")));
+        //     });
 
     };
 }
 
+// Get redux state from db
 export function importStateAsync() {
     return dispatch => {
         dispatch(setBusy(true, i18n.t("Importing")));
