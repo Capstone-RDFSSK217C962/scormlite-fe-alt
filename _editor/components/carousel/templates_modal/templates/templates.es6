@@ -242,7 +242,7 @@ export const templates = () => { return (
                 },
                 "toolbar": {
                     "name": "EnrichedPlayer",
-                    "url": "https://www.youtube.com/watch?v=BV5P_V2Yyrc",
+                    "url": "https://www.youtube.com/watch?v=abPrImBw0i0",
                 },
                 "thumbnail": {
                     "icon": "play_circle_outline",
