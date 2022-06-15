@@ -44,17 +44,14 @@ class CourseDetail extends Component {
         CourseService.getCourseById(id).then(
             response => {
                 this.setState({
-                    course: response.data,
+                    course: response,
                 });
             },
             error => {
                 this.setState({
                     course:
-                  (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                  error.message ||
-                  error.toString(),
+                  (error.response && error.response.message) ||
+                  error.message || error.toString(),
                 });
 
                 if (error.response && error.response.status === 401) {
