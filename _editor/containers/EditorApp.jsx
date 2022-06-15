@@ -657,11 +657,10 @@ class EditorApp extends Component {
      * Loads plugin API and sets listeners for plugin events, marks and keyboard keys pressed
      */
     componentDidMount() {
-
         CourseService.getCourseById(this.props.match.params.id).then(
             response => {
-                if ('module' in response.data) {
-                    this.props.dispatch(importState(serialize(response.data.module.undoGroup)));
+                if ('module' in response) {
+                    this.props.dispatch(importState(serialize(response.module.undoGroup)));
                 }
             },
             error => {
