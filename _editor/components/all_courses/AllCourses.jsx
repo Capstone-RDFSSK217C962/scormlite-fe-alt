@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import DashboardNavbar from "../dashboard_navbar/DashboardNavbar";
 import CourseCard from "../course_card/CourseCard";
 import CourseService from "../course_card/course.service";
 import "../home/Home.module.scss";
@@ -41,7 +40,6 @@ class AllCourses extends Component {
 
         return (
             <div style={{ display: 'flex' }}>
-                <DashboardNavbar />
                 <div className="container contentwrapper">
                     <h2>Semua Course</h2>
                     {courses.length > 0 ? (

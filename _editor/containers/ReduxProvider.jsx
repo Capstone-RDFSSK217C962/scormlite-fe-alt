@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 import { createStore, compose, applyMiddleware } from 'redux';
@@ -19,23 +19,29 @@ import CourseDetail from '../components/course_detail/CourseDetail';
 import Header from '../components/header/Header';
 import PrivateRoute from './privateRoute';
 import PublicRoute from './publicRoute';
+import DashboardNavbar from '../components/dashboard_navbar/DashboardNavbar';
 
 export default class ReduxProvider extends Component {
     constructor(props) {
         super(props);
         this.initialState = Ediphy.InitialState;
         this.store = this.configureStore();
-
         this.history = createBrowserHistory();
+        this.reset = ['/editor', '/login', '/register', '/logout'];
+        this.firstPath = /^\/([^\/]*)/;
     }
 
     render() {
-        const history = this.history;
 
         return (
             <Provider store={this.store}>
                 <Router>
-                    { history.location.pathname !== '/editor' && (<Header />)}
+                    <Route
+                        render={({ location }) =>
+                            this.reset.includes(location.pathname.match(this.firstPath)[0]) ?
+                                null : <Fragment><Header /><DashboardNavbar /></Fragment>
+                        }
+                    />
                     <Switch>
                         <PrivateRoute exact path={['/', 'home']} component={Home} />
                         <PublicRoute exact path="/login" component={Login} />
@@ -44,7 +50,7 @@ export default class ReduxProvider extends Component {
                         <PrivateRoute exact path="/courses/create" component={CreateCourse} />
                         <PrivateRoute exact path="/courses/edit/:id" component={EditCourse} />
                         <PrivateRoute exact path="/courses/:id"><CourseDetail store={this.store}/> </PrivateRoute>
-                        <PrivateRoute exact path="/courses/editor/:id" >
+                        <PrivateRoute exact path="/editor/:id" >
                             <div style={{ height: '100%' }}>
                                 <EditorApp id="app" store={this.store} />
                                 {process.env.NODE_ENV === 'production' ? null : <DevTools />}

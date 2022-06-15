@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import CourseService from "../course_card/course.service";
 
-import DashboardNavbar from "../dashboard_navbar/DashboardNavbar";
 import ModuleForm from "../module_form/ModuleForm";
 import VisorCourseDetail from "../../../_visor/containers/VisorCourseDetail";
 
@@ -77,7 +76,6 @@ class CourseDetail extends Component {
     render() {
         return (
             <div style={{ display: 'flex' }}>
-                <DashboardNavbar />
                 <div className="container contentwrapper">
                     <h2>{this.state.course.title} ({this.state.course.code})</h2>
                     <h4>Deskripsi Course</h4>

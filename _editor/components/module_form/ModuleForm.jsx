@@ -31,9 +31,9 @@ class ModuleForm extends Component {
             <div className="wrapperDetail">
                 <div className="emptyStateContainer">
                     <div className="faceIcon" />
-                    <h3>Course masih kosong, tambahkan konten sekarang!</h3>
-                    <Link to={`editor/${this.props.id}`}>
-                        Tambah Konten
+                    <h3>Course masih kosong, tambahkan modul sekarang!</h3>
+                    <Link to={`/editor/${this.props.id}`}>
+                        <a>Tambah Modul</a>
                     </Link>
                     {/* <Visor id="visor"
                     title={title}

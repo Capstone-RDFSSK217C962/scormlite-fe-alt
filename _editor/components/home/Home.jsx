@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-import DashboardNavbar from '../dashboard_navbar/DashboardNavbar';
 import './Home.module.scss';
 import CourseCard from '../course_card/CourseCard';
 import CourseService from "../course_card/course.service";
@@ -41,7 +40,6 @@ export default class Home extends Component {
 
         return (
             <div style={{ display: 'flex' }}>
-                <DashboardNavbar />
                 <div className="container contentwrapper">
                     <h2>Dashboard</h2>
                     <div className="addCourseWrapper">

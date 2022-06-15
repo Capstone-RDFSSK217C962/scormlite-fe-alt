@@ -4,7 +4,6 @@ import Input from 'react-validation/build/input';
 import CheckButton from "react-validation/build/button";
 
 import CourseService from "../course_card/course.service";
-import DashboardNavbar from "../dashboard_navbar/DashboardNavbar";
 import LoadingSpinner from "../loading_spinner/LoadingSpinner";
 
 import "../home/Home.module.scss";
@@ -120,7 +119,6 @@ class CreateCourse extends Component {
     render() {
         return (
             <div style={{ display: 'flex' }}>
-                <DashboardNavbar />
                 <div className="container contentwrapper">
                     <h2>Tambah Course</h2>
                     {this.state.isLoading ? (<LoadingSpinner/>) : <Form onSubmit={this.handleCreateCourse}

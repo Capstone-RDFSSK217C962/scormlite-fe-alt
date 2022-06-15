@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './DashboardNavbar.module.scss';
+import './DashboardNavbar.module.scss';
 
 function DashboardNavbar() {
     return (
