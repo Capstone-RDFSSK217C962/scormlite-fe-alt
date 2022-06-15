@@ -154,7 +154,7 @@ export default class CarouselButtons extends Component {
                         e.stopPropagation();
                     }}
                 >
-                    <i className="material-icons">create_new_folder</i> Tambah Bab
+                    <i className="material-icons">create_new_folder</i> Tambah Modul
                 </Button>
 
                 {/* <OverlayTrigger placement="top" overlay={
