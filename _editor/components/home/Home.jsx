@@ -19,17 +19,14 @@ export default class Home extends Component {
         CourseService.getAllCourses().then(
             response => {
                 this.setState({
-                    courses: response.data,
+                    courses: response,
                 });
             },
             error => {
                 this.setState({
                     courses:
-                  (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                  error.message ||
-                  error.toString(),
+                  (error.response && error.response.data.message) ||
+                  error.message || error.toString(),
                 });
 
                 if (error.response && error.response.status === 401) {
@@ -60,7 +57,9 @@ export default class Home extends Component {
                         </Link>
                     </div>
                     <h2>Courses Terbaru</h2>
-                    <CourseCard courses={courses} />
+                    {courses.length > 0 ? (
+                        <CourseCard courses={courses} />) : <p>No courses yet.</p>
+                    }
                 </div>
             </div>
         );

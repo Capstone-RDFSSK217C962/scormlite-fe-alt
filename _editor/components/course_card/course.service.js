@@ -1,41 +1,62 @@
-import axios from 'axios';
-import authHeader from '../auth/auth-header';
+import api from "../../../services/api";
 import 'regenerator-runtime/runtime';
-
-const API_URL = 'http://localhost:3000/api/courses/';
 
 class CourseService {
 
     createCourse(title, desc, code, duration, package_url) {
-        return axios.post(API_URL, { title, desc, code, duration, package_url }, { headers: authHeader() });
+        return api.post('/courses', { title, desc, code, duration, package_url })
+            .then((response) => {
+                return response.data;
+            });
     }
 
     getCourseById(id) {
-        return axios.get(API_URL + id, { headers: authHeader() });
+        return api.get(`/courses/${id}`)
+            .then((response) => {
+                return response.data;
+            });
     }
 
     updateCourse(id, title, desc, code, duration, package_url, published) {
-        return axios.put(API_URL + id, { title, desc, code, duration, package_url, published }, { headers: authHeader() });
+        return api.put(`/courses/${id}`, { title, desc, code, duration, package_url, published })
+            .then((response) => {
+                return response.data;
+            });
     }
 
     updateState(id, module) {
-        return axios.put(API_URL + id, { module }, { headers: authHeader() });
+        return api.put(`/courses/${id}`, { module })
+            .then((response) => {
+                return response.data;
+            });
     }
 
     getCourseByTitle() {
-        return axios.get(API_URL, { headers: authHeader() });
+        return api.get('/courses')
+            .then((response) => {
+                return response.data;
+            });
     }
 
     getAllCourses() {
-        return axios.get(API_URL, { headers: authHeader() });
+        return api.get('/courses')
+            .then((response) => {
+                return response.data;
+            });
     }
 
     deleteCourseById(id) {
-        return axios.delete(API_URL + id, { headers: authHeader() });
+        return api.delete(`/courses/${id}`)
+            .then((response) => {
+                return response.data;
+            });
     }
 
     deleteAllCourses() {
-        return axios.delete(API_URL, { headers: authHeader() });
+        return api.delete('/courses')
+            .then((response) => {
+                return response.data;
+            });
     }
 }
 

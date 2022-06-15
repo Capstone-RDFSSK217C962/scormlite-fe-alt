@@ -19,17 +19,14 @@ class AllCourses extends Component {
         CourseService.getAllCourses().then(
             response => {
                 this.setState({
-                    courses: response.data,
+                    courses: response,
                 });
             },
             error => {
                 this.setState({
                     courses:
-                  (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                  error.message ||
-                  error.toString(),
+                  (error.response && error.response.message) ||
+                  error.message || error.toString(),
                 });
 
                 if (error.response && error.response.status === 401) {
@@ -47,7 +44,9 @@ class AllCourses extends Component {
                 <DashboardNavbar />
                 <div className="container contentwrapper">
                     <h2>Semua Course</h2>
-                    <CourseCard courses={courses ? courses : []} />
+                    {courses.length > 0 ? (
+                        <CourseCard courses={courses} />) : <p>No courses yet.</p>
+                    }
                 </div>
             </div>
         );
