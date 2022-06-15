@@ -21,6 +21,7 @@ class CourseDetail extends Component {
         this.state = {
             course: {},
             id: '',
+            isModuleCreated: false,
         };
 
         this.handleDeleteCourse = this.handleDeleteCourse.bind(this);
@@ -42,6 +43,11 @@ class CourseDetail extends Component {
 
         CourseService.getCourseById(id).then(
             response => {
+                if ('module' in response) {
+                    this.setState({
+                        isModuleCreated: true,
+                    });
+                }
                 this.setState({
                     course: response,
                 });
@@ -74,6 +80,7 @@ class CourseDetail extends Component {
     //   };
 
     render() {
+        const { isModuleCreated } = this.state;
         return (
             <div style={{ display: 'flex' }}>
                 <div className="container contentwrapper">
@@ -96,14 +103,21 @@ class CourseDetail extends Component {
                         </div>
 
                     </div>
-                    <ModuleForm id={this.state.id}/>
-                    {/* <div>{...this.props.store.getState().undoGroup.present.navItemsById}</div> */}
-                    {/* {console.log(...this.props.store.getState().undoGroup.present)} */}
-                    <VisorCourseDetail id="visor"
+                    { isModuleCreated ? (<VisorCourseDetail id="visor"
                         title={"test"}
                         visorVisible
                         filesUploaded={this.props.store.getState().filesUploaded }
-                        state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}/>
+                        state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}/>) : (<ModuleForm id={this.state.id}/>)
+
+                    }
+                    {/* <ModuleForm id={this.state.id}/>
+                    {/* <div>{...this.props.store.getState().undoGroup.present.navItemsById}</div> */}
+                    {/* {console.log(...this.props.store.getState().undoGroup.present)} */}
+                    {/* <VisorCourseDetail id="visor"
+                        title={"test"}
+                        visorVisible
+                        filesUploaded={this.props.store.getState().filesUploaded }
+                        state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}/> */} */}
                 </div>
             </div>
         );
