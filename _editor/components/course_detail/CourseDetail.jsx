@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import { Provider } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import CourseService from "../course_card/course.service";
 
 import DashboardNavbar from "../dashboard_navbar/DashboardNavbar";
 import ModuleForm from "../module_form/ModuleForm";
+import VisorCourseDetail from "../../../_visor/containers/VisorCourseDetail";
 
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import "../home/Home.module.scss";
@@ -14,6 +18,7 @@ class CourseDetail extends Component {
     constructor(props) {
         super(props);
 
+        console.log(...this.props.store.getState().undoGroup.present.navItemsById);
         this.state = {
             course: {},
             id: '',
@@ -97,9 +102,16 @@ class CourseDetail extends Component {
 
                     </div>
                     <ModuleForm id={this.state.id}/>
+                    {/* <div>{...this.props.store.getState().undoGroup.present.navItemsById}</div> */}
+                    {/* {console.log(...this.props.store.getState().undoGroup.present)} */}
+                    <VisorCourseDetail id="visor"
+                        title={"test"}
+                        visorVisible
+                        filesUploaded={this.props.store.getState().filesUploaded }
+                        state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}/>
                 </div>
             </div>
         );
     }}
 
-export default CourseDetail;
+export default withRouter(CourseDetail);

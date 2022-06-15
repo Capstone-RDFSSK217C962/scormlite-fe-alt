@@ -43,7 +43,7 @@ export default class ReduxProvider extends Component {
                         <PrivateRoute exact path="/courses" component={AllCourses} />
                         <PrivateRoute exact path="/courses/create" component={CreateCourse} />
                         <PrivateRoute exact path="/courses/edit/:id" component={EditCourse} />
-                        <PrivateRoute exact path="/courses/:id" component={CourseDetail} />
+                        <PrivateRoute exact path="/courses/:id"><CourseDetail store={this.store}/> </PrivateRoute>
                         <PrivateRoute exact path="/courses/editor/:id" >
                             <div style={{ height: '100%' }}>
                                 <EditorApp id="app" store={this.store} />
