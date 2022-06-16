@@ -19,6 +19,7 @@ import CourseDetail from '../components/course_detail/CourseDetail';
 import Header from '../components/header/Header';
 import PrivateRoute from './privateRoute';
 import PublicRoute from './publicRoute';
+import EditorRoute from './editorRoute';
 import DashboardNavbar from '../components/dashboard_navbar/DashboardNavbar';
 
 export default class ReduxProvider extends Component {
@@ -50,12 +51,7 @@ export default class ReduxProvider extends Component {
                         <PrivateRoute exact path="/courses/create" component={CreateCourse} />
                         <PrivateRoute exact path="/courses/edit/:id" component={EditCourse} />
                         <PrivateRoute exact path="/courses/:id"><CourseDetail store={this.store}/> </PrivateRoute>
-                        <PrivateRoute exact path="/editor/:id" >
-                            <div style={{ height: '100%' }}>
-                                <EditorApp id="app" store={this.store} />
-                                {process.env.NODE_ENV === 'production' ? null : <DevTools />}
-                            </div>
-                        </PrivateRoute>
+                        <EditorRoute exact path="/editor/:id" component={EditorApp} id="app" store={this.store}/>
                     </Switch>
                 </Router>
             </Provider>
