@@ -5,7 +5,7 @@ export default {
     exercise_render_template_iframe_src: "./exercises/index.html",
     dist_index: "dist/index.html",
     dist_visor_bundle: "dist/visor-bundle.js",
-    visor_bundle: "visor-bundle.js",
+    visor_bundle: "/visor-bundle.js",
     image_placeholder: "images/placeholder.svg",
     broken_link: "images/broken_link.png",
     scorm_ejs: "/lib/scorm/scorm_nav.ejs",
