@@ -28,7 +28,7 @@ export default class ReduxProvider extends Component {
         this.initialState = Ediphy.InitialState;
         this.store = this.configureStore();
         this.history = createBrowserHistory();
-        this.reset = ['/editor', '/login', '/register', '/logout'];
+        this.allowedPath = ['/courses'];
         this.firstPath = /^\/([^\/]*)/;
     }
 
@@ -39,8 +39,8 @@ export default class ReduxProvider extends Component {
                 <Router>
                     <Route
                         render={({ location }) =>
-                            this.reset.includes(location.pathname.match(this.firstPath)[0]) ?
-                                null : <Fragment><Header /><DashboardNavbar /></Fragment>
+                            this.allowedPath.includes(location.pathname.match(this.firstPath)[0]) ?
+                                <Fragment><Header /><DashboardNavbar /></Fragment> : null
                         }
                     />
                     <Switch>
