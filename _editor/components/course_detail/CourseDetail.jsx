@@ -7,6 +7,7 @@ import VisorCourseDetail from "../../../_visor/containers/VisorCourseDetail";
 
 import "../home/Home.module.scss";
 import "../course_card/CourseCard.module.scss";
+import "../module_form/ModuleForm.module.scss";
 
 class CourseDetail extends Component {
 
@@ -87,12 +88,18 @@ class CourseDetail extends Component {
                         </div>
 
                     </div>
-                    { isModuleCreated ? (<VisorCourseDetail id="visor"
-                        title={"test"}
-                        visorVisible
-                        filesUploaded={this.props.store.getState().filesUploaded }
-                        state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}/>) : (<ModuleForm id={this.state.id}/>)
-
+                    { isModuleCreated ? (
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                            <VisorCourseDetail id="visor"
+                                title={"test"}
+                                visorVisible
+                                filesUploaded={this.props.store.getState().filesUploaded }
+                                state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}
+                            />
+                            <Link to={`editor/${this.state.id}`} style={{ backgroundColor: "#3D5AFE", color: "white", padding: "10px", borderRadius: "10px", borderColor: "#3D5AFE", width: "10%", textAlign: "center", marginTop: "15px" }}>
+                                Edit Konten
+                            </Link>
+                        </div>) : (<ModuleForm id={this.state.id}/>)
                     }
                 </div>
             </div>
