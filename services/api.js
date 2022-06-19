@@ -1,6 +1,8 @@
 import axios from "axios";
-import TokenService from "./token.service";
 import 'regenerator-runtime/runtime';
+
+import TokenService from "./token.service";
+import authService from "../_editor/components/auth/auth.service";
 
 const instance = axios.create({
     baseURL: "http://localhost:3000/api",
@@ -36,15 +38,20 @@ instance.interceptors.response.use(
                 originalConfig._retry = true;
 
                 try {
-                    const rs = await instance.post("/auth/refreshtoken", {
+                    const res = await instance.post("/auth/refreshtoken", {
                         refreshToken: TokenService.getLocalRefreshToken(),
                     });
 
-                    const { accessToken } = rs.data;
+                    const { accessToken } = res.data;
                     TokenService.updateLocalAccessToken(accessToken);
 
                     return instance(originalConfig);
                 } catch (_error) {
+                    if (_error.response.status === 403) {
+                        authService.logout();
+                        window.location.href = '/login';
+                    }
+
                     return Promise.reject(_error);
                 }
             }
