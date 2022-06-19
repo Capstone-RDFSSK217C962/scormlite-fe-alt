@@ -11,12 +11,6 @@ export default class VisorCourseDetail extends Component {
     }
 
     render() {
-    /* if (this.props.state.navItemSelected === 0) {
-            return (
-                <div />
-            );
-        }*/
-
         return (
             <iframe
                 id="visor_iframe"
@@ -38,16 +32,7 @@ export default class VisorCourseDetail extends Component {
 }
 
 VisorCourseDetail.propTypes = {
-    /**
-   * Indica si se debe mostrar o no el visor
-   */
     visorVisible: PropTypes.bool,
-    /**
-   * Muestra o oculta el visor
-   */
     onVisibilityToggled: PropTypes.func.isRequired,
-    /**
-   * Estado de la aplicación que se pasa al visor
-   */
     state: PropTypes.object.isRequired,
 };
