@@ -11,26 +11,34 @@ class AllCourses extends Component {
 
         this.state = {
             courses: [],
+            isLoading: false,
         };
     }
 
     componentDidMount() {
+        this.setState({ isLoading: true });
+
         CourseService.getAllCourses().then(
             response => {
-                this.setState({
-                    courses: response,
-                });
+                if (response.status === 200)
+                {this.setState({
+                    isLoading: false,
+                    courses: response.data,
+                });}
             },
             error => {
-                this.setState({
-                    courses:
-                  (error.response && error.response.message) ||
-                  error.message || error.toString(),
-                });
+                const resMessage =
+                    (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                    error.message ||
+                    error.toString();
 
-                if (error.response && error.response.status === 401) {
-                    EventBus.dispatch("logout");
-                }
+                this.setState({
+                    isLoading: false,
+                    courses: [],
+                    error: resMessage,
+                });
             }
         );
     }

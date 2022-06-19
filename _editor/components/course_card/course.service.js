@@ -6,21 +6,21 @@ class CourseService {
     createCourse(title, desc, code, duration, package_url) {
         return api.post('/courses', { title, desc, code, duration, package_url })
             .then((response) => {
-                return response.data;
+                return response;
             });
     }
 
     getCourseById(id) {
         return api.get(`/courses/${id}`)
             .then((response) => {
-                return response.data;
+                return response;
             });
     }
 
     updateCourse(id, title, desc, code, duration, package_url, published) {
         return api.put(`/courses/${id}`, { title, desc, code, duration, package_url, published })
             .then((response) => {
-                return response.data;
+                return response;
             });
     }
 
@@ -34,28 +34,28 @@ class CourseService {
     getCourseByTitle() {
         return api.get('/courses')
             .then((response) => {
-                return response.data;
+                return response;
             });
     }
 
     getAllCourses() {
         return api.get('/courses')
             .then((response) => {
-                return response.data;
+                return response;
             });
     }
 
     deleteCourseById(id) {
         return api.delete(`/courses/${id}`)
             .then((response) => {
-                return response.data;
+                return response;
             });
     }
 
     deleteAllCourses() {
         return api.delete('/courses')
             .then((response) => {
-                return response.data;
+                return response;
             });
     }
 }
