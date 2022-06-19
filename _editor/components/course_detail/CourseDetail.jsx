@@ -40,7 +40,7 @@ class CourseDetail extends Component {
 
         CourseService.getCourseById(id).then(
             response => {
-                if ('module' in response) {
+                if ('module' in response.data) {
                     this.setState({
                         isModuleCreated: true,
                     });
