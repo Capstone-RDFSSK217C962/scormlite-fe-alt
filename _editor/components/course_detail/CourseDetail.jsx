@@ -110,14 +110,6 @@ class CourseDetail extends Component {
                         state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}/>) : (<ModuleForm id={this.state.id}/>)
 
                     }
-                    {/* <ModuleForm id={this.state.id}/>
-                    {/* <div>{...this.props.store.getState().undoGroup.present.navItemsById}</div> */}
-                    {/* {console.log(...this.props.store.getState().undoGroup.present)} */}
-                    {/* <VisorCourseDetail id="visor"
-                        title={"test"}
-                        visorVisible
-                        filesUploaded={this.props.store.getState().filesUploaded }
-                        state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}/> */} */}
                 </div>
             </div>
         );
