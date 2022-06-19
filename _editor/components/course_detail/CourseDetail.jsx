@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import { Provider } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import CourseService from "../course_card/course.service";
 
 import ModuleForm from "../module_form/ModuleForm";
 import VisorCourseDetail from "../../../_visor/containers/VisorCourseDetail";
-
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import "../home/Home.module.scss";
 import "../course_card/CourseCard.module.scss";
@@ -28,11 +24,12 @@ class CourseDetail extends Component {
     }
 
     handleDeleteCourse() {
-        const isDeleteSuccess = CourseService.deleteCourseById(this.state.id);
-        if (isDeleteSuccess) {
-            this.props.history.push('/');
-            window.location.reload();
-        }
+        CourseService.deleteCourseById(this.state.id).then(
+            response => {
+                if (response.status === 200) {
+                    this.props.history.push('/');
+                }
+            });
     }
 
     componentDidMount() {
@@ -49,35 +46,22 @@ class CourseDetail extends Component {
                     });
                 }
                 this.setState({
-                    course: response,
+                    course: response.data,
                 });
             },
             error => {
                 this.setState({
-                    course:
-                  (error.response && error.response.message) ||
-                  error.message || error.toString(),
+                    course: [],
+                    error: (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                      error.message ||
+                      error.toString(),
                 });
 
-                if (error.response && error.response.status === 401) {
-                    EventBus.dispatch("logout");
-                }
             }
         );
     }
-
-    // const handleDeleteReply = async (id: string): Promise<void> => {
-    //     const isDeleteSuccess = await deleteReplyApi(id);
-    //     if (isDeleteSuccess) {
-    //       setReplies({
-    //         content: _.compact(
-    //           _.map(replies?.content, (data) => (data._id !== id ? data : null)),
-    //         ),
-    //         pagination: replies?.pagination,
-    //       });
-    //       setReplyCount(replyCount - 1);
-    //     }
-    //   };
 
     render() {
         const { isModuleCreated } = this.state;

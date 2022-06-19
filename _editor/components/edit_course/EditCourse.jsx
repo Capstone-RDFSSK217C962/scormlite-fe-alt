@@ -52,18 +52,17 @@ class EditCourse extends Component {
 
             },
             error => {
-                this.setState({
-                    courses:
-                  (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                  error.message ||
-                  error.toString(),
-                });
+                const resMessage =
+                (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+                error.message ||
+                error.toString();
 
-                if (error.response && error.response.status === 401) {
-                    EventBus.dispatch("logout");
-                }
+                this.setState({
+                    courses: [],
+                    error: resMessage,
+                });
             }
         );
     }
@@ -120,25 +119,25 @@ class EditCourse extends Component {
                 this.state.published
             ).then(
                 (response) => {
-                    this.setState({
-                        // message: response.data.message,
-                        successful: true,
-                        isLoading: false,
-                    });
-                    // eslint-disable-next-line react/prop-types
-                    // this.props.history.push('login');
-                    // window.location.reload();
-                    this.props.history.push(`/courses/${this.state.id}`);
+                    if (response.status === 200) {
+                        this.setState({
+                            isLoading: false,
+                            successful: true,
+                            message: response.data.message,
+                        });
+                        this.props.history.push(`/courses/${this.state.id}`);
+                    }
                 },
                 (error) => {
                     const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
+                        (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                        error.message ||
+                        error.toString();
 
                     this.setState({
+                        isLoading: false,
                         successful: false,
                         message: resMessage,
                     });

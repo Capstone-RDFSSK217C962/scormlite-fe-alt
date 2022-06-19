@@ -18,19 +18,18 @@ export default class Home extends Component {
         CourseService.getAllCourses().then(
             response => {
                 this.setState({
-                    courses: response,
+                    courses: response.data,
                 });
             },
             error => {
                 this.setState({
-                    courses:
-                  (error.response && error.response.data.message) ||
-                  error.message || error.toString(),
+                    courses: [],
+                    error: (error.response &&
+                          error.response.data &&
+                          error.response.data.message) ||
+                        error.message ||
+                        error.toString(),
                 });
-
-                if (error.response && error.response.status === 401) {
-                    EventBus.dispatch("logout");
-                }
             }
         );
     }

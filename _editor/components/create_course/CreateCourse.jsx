@@ -83,33 +83,27 @@ class CreateCourse extends Component {
                 this.state.package_url
             ).then(
                 (response) => {
-                    this.setState({
-                        // message: response.data.message,
-                        successful: true,
-                        id: response.data.id,
-                        isLoading: false,
-                    });
-                    // eslint-disable-next-line react/prop-types
-                    // this.props.history.push('login');
-                    // window.location.reload();
-                    // const { id } = this.props.match.params;
+                    if (response.status === 200) {
+                        this.setState({
+                            isLoading: false,
+                            successful: true,
+                            id: response.data.id,
 
-                    // this.state.id = id;
-                    this.props.history.push(`/courses/${this.state.id}`);
-                    // window.location.reload();
+                        });
+                        this.props.history.push(`/courses/${this.state.id}`);
+                    }
                 },
                 (error) => {
                     const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-
+                        (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                        error.message ||
+                        error.toString();
                     this.setState({
+                        isLoading: false,
                         successful: false,
                         message: resMessage,
-                        isLoading: false,
                     });
                 }
             );

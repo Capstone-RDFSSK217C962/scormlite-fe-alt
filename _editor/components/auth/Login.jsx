@@ -58,7 +58,7 @@ class Login extends Component {
 
         this.setState({
             message: "",
-            loading: true,
+            isLoading: true,
         });
 
         this.form.validateAll();
@@ -67,7 +67,7 @@ class Login extends Component {
             AuthService.login(this.state.username, this.state.password).then(
                 () => {
                     // eslint-disable-next-line react/prop-types
-                    this.props.history.push('/courses');
+                    this.props.history.push('/');
                     window.location.reload();
                 },
                 (error) => {
@@ -79,14 +79,14 @@ class Login extends Component {
             error.toString();
 
                     this.setState({
-                        loading: false,
+                        isLoading: false,
                         message: resMessage,
                     });
                 }
             );
         } else {
             this.setState({
-                loading: false,
+                isLoading: false,
             });
         }
     }
