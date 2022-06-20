@@ -39,7 +39,7 @@ export default class ReduxProvider extends Component {
                 <Router>
                     <Route
                         render={({ location }) =>
-                            this.allowedPaths.includes(location.pathname.match(this.firstPath)[0]) ?
+                            this.allowedPaths.includes(location.pathname.match(this.firstPath)[0]) && location.pathname.split("/")[2] !== "editor" ?
                                 <Fragment><Header /><DashboardNavbar /></Fragment> : null
                         }
                     />
