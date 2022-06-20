@@ -192,7 +192,7 @@ class EditorApp extends Component {
                                 Ediphy.Visor.exportsHTML({ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded }, callback, options);
                             }}}
                         scorm={(is2004, callback, selfContained = false) => {Ediphy.Visor.exportScorm({ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }, is2004, callback, selfContained);}}
-                        save={(win) => {dispatch(exportStateAsync({ ...this.props.store.getState() }, win)); }}
+                        save={(win) => {dispatch(exportStateAsync(this.props.match.params.id, { ...this.props.store.getState() }, win)); }}
                         category={this.state.pluginTab}
                         opens={() => {dispatch(importStateAsync());}}
                         serverModalOpen={()=>{this.setState({ serverModal: true });}}
@@ -424,7 +424,7 @@ class EditorApp extends Component {
                     </Col>
                 </Row>
                 <ServerFeedback show={this.state.serverModal}
-                    title={"Guardar cambios"}
+                    title={"Menyimpan perubahan"}
                     isBusy={isBusy}
                     hideModal={() => this.setState({ serverModal: false })}/>
                 <Visor id="visor"
