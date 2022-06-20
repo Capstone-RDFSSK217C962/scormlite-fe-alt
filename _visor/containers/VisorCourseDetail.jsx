@@ -23,7 +23,7 @@ export default class VisorCourseDetail extends Component {
                         el.contentWindow.document.close();
                     }
                 }}
-                style={{ width: "100%", height: "100%", border: 0 }}
+                style={{ width: "100%", height: "500px", border: 0, marginTop: "16px" }}
                 allowFullScreen
                 frameBorder="0"
             />
