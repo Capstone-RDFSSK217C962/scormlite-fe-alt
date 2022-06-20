@@ -659,8 +659,8 @@ class EditorApp extends Component {
     componentDidMount() {
         CourseService.getCourseById(this.props.match.params.id).then(
             response => {
-                if ('module' in response) {
-                    this.props.dispatch(importState(serialize(response.module.undoGroup)));
+                if ('module' in response.data) {
+                    this.props.dispatch(importState(serialize(response.data.module.undoGroup)));
                 }
             },
             error => {
