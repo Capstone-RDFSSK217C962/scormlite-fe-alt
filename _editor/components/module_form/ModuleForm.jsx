@@ -19,7 +19,7 @@ class ModuleForm extends Component {
                 <div className="emptyStateContainer">
                     <div className="faceIcon" />
                     <h3>Course masih kosong, tambahkan modul sekarang!</h3>
-                    <Link to={`editor/${this.props.id}`}>
+                    <Link to={`/editor/${this.props.id}`}>
                         <a>Tambah Modul</a>
                     </Link>
                 </div>

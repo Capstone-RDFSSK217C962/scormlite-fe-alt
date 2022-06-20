@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import CourseCard from "../course_card/CourseCard";
 import CourseService from "../course_card/course.service";
 import "../home/Home.module.scss";
+import ErrorPage from "../error/ErrorPage";
 
 class AllCourses extends Component {
 
@@ -12,6 +13,10 @@ class AllCourses extends Component {
         this.state = {
             courses: [],
             isLoading: false,
+            error: {
+                status: null,
+                message: '',
+            },
         };
     }
 
@@ -27,31 +32,36 @@ class AllCourses extends Component {
                 });}
             },
             error => {
-                const resMessage =
-                    (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                    error.message ||
-                    error.toString();
-
                 this.setState({
                     isLoading: false,
                     courses: [],
-                    error: resMessage,
+                    error: {
+                        status: error.response.status,
+                        message: (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                          error.message ||
+                          error.toString(),
+                    },
                 });
             }
         );
     }
 
     render() {
+
         const { courses } = this.state;
+
+        if (this.state.error.status) {
+            return <ErrorPage error={this.state.error}/>;
+        }
 
         return (
             <div style={{ display: 'flex' }}>
                 <div className="container contentwrapper">
                     <h2>Semua Course</h2>
                     {courses.length > 0 ? (
-                        <CourseCard courses={courses} />) : <p>No courses yet.</p>
+                        <CourseCard courses={courses} />) : <p>Belum ada course.</p>
                     }
                 </div>
             </div>

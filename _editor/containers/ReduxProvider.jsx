@@ -19,6 +19,7 @@ import CourseDetail from '../components/course_detail/CourseDetail';
 import Header from '../components/header/Header';
 import PrivateRoute from './privateRoute';
 import PublicRoute from './publicRoute';
+import NotFound from '../components/error/NotFound';
 import EditorRoute from './editorRoute';
 import DashboardNavbar from '../components/dashboard_navbar/DashboardNavbar';
 
@@ -52,6 +53,7 @@ export default class ReduxProvider extends Component {
                         <PrivateRoute exact path="/courses/edit/:id" component={EditCourse} />
                         <PrivateRoute exact path="/courses/:id"><CourseDetail store={this.store}/> </PrivateRoute>
                         <EditorRoute exact path="/editor/:id" component={EditorApp} id="app" store={this.store}/>
+                        <Route component={NotFound} />
                     </Switch>
                 </Router>
             </Provider>

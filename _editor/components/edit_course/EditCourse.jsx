@@ -5,6 +5,7 @@ import CheckButton from "react-validation/build/button";
 
 import CourseService from "../course_card/course.service";
 import LoadingSpinner from "../loading_spinner/LoadingSpinner";
+import ErrorPage from "../error/ErrorPage";
 
 import "../home/Home.module.scss";
 import "./EditCourse.module.scss";
@@ -31,6 +32,10 @@ class EditCourse extends Component {
             successful: false,
             message: '',
             isLoading: false,
+            error: {
+                status: null,
+                message: '',
+            },
         };
     }
 
@@ -52,16 +57,15 @@ class EditCourse extends Component {
 
             },
             error => {
-                const resMessage =
-                (error.response &&
-                error.response.data &&
-                error.response.data.message) ||
-                error.message ||
-                error.toString();
-
                 this.setState({
-                    courses: [],
-                    error: resMessage,
+                    error: {
+                        status: error.response.status,
+                        message: (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                          error.message ||
+                          error.toString(),
+                    },
                 });
             }
         );
@@ -129,17 +133,17 @@ class EditCourse extends Component {
                     }
                 },
                 (error) => {
-                    const resMessage =
-                        (error.response &&
-                        error.response.data &&
-                        error.response.data.message) ||
-                        error.message ||
-                        error.toString();
-
                     this.setState({
                         isLoading: false,
                         successful: false,
-                        message: resMessage,
+                        error: {
+                            status: error.response.status,
+                            message: (error.response &&
+                                error.response.data &&
+                                error.response.data.message) ||
+                              error.message ||
+                              error.toString(),
+                        },
                     });
                 }
             );
@@ -147,6 +151,11 @@ class EditCourse extends Component {
     }
 
     render() {
+
+        if (this.state.error.status) {
+            return <ErrorPage error={this.state.error}/>;
+        }
+
         return (
             <div style={{ display: 'flex' }}>
                 <div className="container contentwrapper">
