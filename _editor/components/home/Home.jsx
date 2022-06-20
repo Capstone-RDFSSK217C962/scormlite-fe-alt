@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import './Home.module.scss';
 import CourseCard from '../course_card/CourseCard';
 import CourseService from "../course_card/course.service";
+import ErrorPage from "../error/ErrorPage";
 
 export default class Home extends Component {
     constructor(props) {
@@ -11,6 +12,10 @@ export default class Home extends Component {
 
         this.state = {
             courses: [],
+            error: {
+                status: null,
+                message: '',
+            },
         };
     }
 
@@ -23,19 +28,26 @@ export default class Home extends Component {
             },
             error => {
                 this.setState({
-                    courses: [],
-                    error: (error.response &&
-                          error.response.data &&
-                          error.response.data.message) ||
-                        error.message ||
-                        error.toString(),
+                    error: {
+                        status: error.response.status,
+                        message: (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                          error.message ||
+                          error.toString(),
+                    },
                 });
             }
         );
     }
 
     render() {
+
         const { courses } = this.state;
+
+        if (this.state.error.status) {
+            return <ErrorPage error={this.state.error}/>;
+        }
 
         return (
             <div style={{ display: 'flex' }}>
@@ -55,7 +67,7 @@ export default class Home extends Component {
                     </div>
                     <h2>Courses Terbaru</h2>
                     {courses.length > 0 ? (
-                        <CourseCard courses={courses} />) : <p>No courses yet.</p>
+                        <CourseCard courses={courses} />) : <p>Belum ada course.</p>
                     }
                 </div>
             </div>

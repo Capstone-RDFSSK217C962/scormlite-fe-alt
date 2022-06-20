@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter, Link } from 'react-router-dom';
 
 import ModuleForm from "../module_form/ModuleForm";
+import CourseService from "../course_card/course.service";
+import ErrorPage from "../error/ErrorPage";
 import VisorCourseDetail from "../../../_visor/containers/VisorCourseDetail";
 import CourseService from "../course_card/course.service";
 
@@ -16,8 +18,12 @@ class CourseDetail extends Component {
 
         console.log(...this.props.store.getState().undoGroup.present.navItemsById);
         this.state = {
-            course: {},
+            course: [],
             id: '',
+            error: {
+                status: null,
+                message: '',
+            },
             isModuleCreated: false,
         };
 
@@ -52,20 +58,27 @@ class CourseDetail extends Component {
             },
             error => {
                 this.setState({
-                    course: [],
-                    error: (error.response &&
-                        error.response.data &&
-                        error.response.data.message) ||
-                      error.message ||
-                      error.toString(),
+                    error: {
+                        status: error.response.status,
+                        message: (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                          error.message ||
+                          error.toString(),
+                    },
                 });
-
             }
         );
     }
 
     render() {
+
         const { isModuleCreated } = this.state;
+
+        if (this.state.error.status) {
+            return <ErrorPage error={this.state.error}/>;
+        }
+
         return (
             <div style={{ display: 'flex' }}>
                 <div className="container contentwrapper">
@@ -76,7 +89,7 @@ class CourseDetail extends Component {
                     </p>
                     <div className="courseFooter">
                         <div className="courseStatus">
-                            {this.state.course.published ? 'Hell yeah' : 'Draft'}
+                            {this.state.course.published ? 'Published' : 'Draft'}
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             <div className="editCourseIcon"/>
@@ -96,7 +109,7 @@ class CourseDetail extends Component {
                                 filesUploaded={this.props.store.getState().filesUploaded }
                                 state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}
                             />
-                            <Link to={`editor/${this.state.id}`} style={{ backgroundColor: "#3D5AFE", color: "white", padding: "10px", borderRadius: "10px", borderColor: "#3D5AFE", width: "10%", textAlign: "center", marginTop: "15px" }}>
+                            <Link to={`/editor/${this.state.id}`} style={{ backgroundColor: "#3D5AFE", color: "white", padding: "10px", borderRadius: "10px", borderColor: "#3D5AFE", width: "10%", textAlign: "center", marginTop: "15px" }}>
                                 Edit Konten
                             </Link>
                         </div>) : (<ModuleForm id={this.state.id}/>)
