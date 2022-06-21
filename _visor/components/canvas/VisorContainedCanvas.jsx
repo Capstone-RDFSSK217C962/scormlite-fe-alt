@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { isSlide } from '../../../common/utils';
 import VisorCanvasDoc from './VisorCanvasDoc';
 import VisorCanvasSli from './VisorCanvasSli';
-import Watermark from './Watermark';
+// import Watermark from './Watermark';
 import { CSSTransition } from 'react-transition-group';
 
 export default class VisorContainedCanvas extends Component {
@@ -31,7 +31,8 @@ export default class VisorContainedCanvas extends Component {
                 timeout={{ enter: 500, exit: 300 }}>
                 {visorContent}
             </CSSTransition>,
-            <Watermark ediphy_document_id={this.props.ediphy_document_id} ediphy_platform={this.props.ediphy_platform} key={"1"}/>]
+            // <Watermark ediphy_document_id={this.props.ediphy_document_id} ediphy_platform={this.props.ediphy_platform} key={"1"}/>
+            ]
         );
     }
 
