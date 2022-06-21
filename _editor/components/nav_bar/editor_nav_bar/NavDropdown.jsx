@@ -44,14 +44,14 @@ export default class NavDropdown extends Component {
                             {i18n.t('Save')}
                         </button>
                     </MenuItem>}
-                    <MenuItem disabled={this.props.undoDisabled} eventKey="1" key="1">
+                    {/* <MenuItem disabled={this.props.undoDisabled} eventKey="1" key="1">
                         <button className="dropdownButton" title={i18n.t('messages.import')}
                             disabled={ false }
                             onClick={()=>{this.props.toggleFileUpload(undefined, '*');}}>
                             <i className="material-icons">file_upload</i>
                             {i18n.t('messages.import')}
                         </button>
-                    </MenuItem>
+                    </MenuItem> */}
                     <MenuItem eventKey="2" key="2">
                         <button className="dropdownButton" title={i18n.t('messages.export')}
                             disabled={this.props.navItemSelected === 0}
@@ -66,7 +66,7 @@ export default class NavDropdown extends Component {
                             {i18n.t('messages.global_config')}
                         </button>
                     </MenuItem>
-                    {Ediphy.Config.external_providers.enable_catalog_modal &&
+                    {/* {Ediphy.Config.external_providers.enable_catalog_modal &&
                     [<MenuItem divider key="div_4"/>,
                         <MenuItem eventKey="4" key="4">
                             <button className="dropdownButton" title={i18n.t('Open_Catalog')}
@@ -87,14 +87,14 @@ export default class NavDropdown extends Component {
                                 <i className="material-icons">folder_open</i>
                                 {i18n.t('Open')}
                             </button>
-                        </MenuItem>]}
-                    <MenuItem disabled={false} eventKey="6" key="6">
+                        </MenuItem>]} */}
+                    {/* <MenuItem disabled={false} eventKey="6" key="6">
                         <button className="dropdownButton" title={i18n.t('messages.help')}
                             disabled={false}
                             onClick={this.props.openTour}><i className="material-icons">help</i>
                             {i18n.t('messages.help')}
                         </button>
-                    </MenuItem>
+                    </MenuItem> */}
                     {(this.isAlreadySaved()) ? <MenuItem disabled={false} eventKey="7" key="7">
                         <button className="dropdownButton" title={i18n.t('delete')}
                             disabled={false}
