@@ -68,10 +68,10 @@ export default class ExportModal extends Component {
 
         let exportFormats = [
             { format: "SCORM 1.2", handler: ()=> {this.props.scorm(false, callback, this.state.selfContained); } },
-            { format: "SCORM 2004", handler: ()=> {this.props.scorm(true, callback, this.state.selfContained); } },
-            { format: "HTML", handler: ()=> {this.props.export('HTML', callback, this.state.selfContained); } },
-            { format: "PDF", formatRender: <span>PDF <sub className={"betaSub"}>BETA</sub></span>, handler: ()=> { this.props.export('PDF', callback, this.state);} },
-            { format: "EDI", handler: ()=> {this.props.export('edi', callback, this.state.selfContained); } },
+            // { format: "SCORM 2004", handler: ()=> {this.props.scorm(true, callback, this.state.selfContained); } },
+            // { format: "HTML", handler: ()=> {this.props.export('HTML', callback, this.state.selfContained); } },
+            // { format: "PDF", formatRender: <span>PDF <sub className={"betaSub"}>BETA</sub></span>, handler: ()=> { this.props.export('PDF', callback, this.state);} },
+            // { format: "EDI", handler: ()=> {this.props.export('edi', callback, this.state.selfContained); } },
         ];
         return (
             <Modal className="pageModal exportoScormModalBody"
@@ -118,9 +118,9 @@ export default class ExportModal extends Component {
                                 </Col>
                                 <Col xs={12} md={12}>
                                     <div className={"explanation"}>
-                                        {this.state.format <= 1 ? i18n.t("SCORM Explanation") : null}
-                                        {this.state.format === 2 ? i18n.t("HTML Explanation") : null}
-                                        {this.state.format === 4 ? i18n.t("EDI Explanation") : null}
+                                        {/* {this.state.format <= 1 ? i18n.t("SCORM Explanation") : null} */}
+                                        {/* {this.state.format === 2 ? i18n.t("HTML Explanation") : null} */}
+                                        {/* {this.state.format === 4 ? i18n.t("EDI Explanation") : null} */}
                                         {(this.state.format !== 3 && this.state.format !== 4) ? <div className={"selfContained"}>
                                             <div><ToggleSwitch onChange={()=>{this.setState({ selfContained: !this.state.selfContained });}} checked={this.state.selfContained}/></div>
                                             <div>{i18n.t('messages.selfContained')}</div></div> : null}
