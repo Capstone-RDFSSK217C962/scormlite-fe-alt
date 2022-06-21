@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import VisorCanvasDoc from './VisorCanvasDoc';
 import VisorCanvasSli from './VisorCanvasSli';
-import Watermark from './Watermark';
+// import Watermark from './Watermark';
 import { isSlide } from '../../../common/utils';
 
 export default class VisorCanvas extends Component {
@@ -11,7 +11,8 @@ export default class VisorCanvas extends Component {
         return [(isSlide(this.props.navItems[this.props.currentView].type)) ?
             (<VisorCanvasSli key="0" {...this.props} />) :
             (<VisorCanvasDoc key="0" {...this.props} />),
-        <Watermark ediphy_document_id={this.props.ediphy_document_id} ediphy_platform={this.props.ediphy_platform} key={"1"}/>];
+        // <Watermark ediphy_document_id={this.props.ediphy_document_id} ediphy_platform={this.props.ediphy_platform} key={"1"}/>
+        ];
 
     }
 
