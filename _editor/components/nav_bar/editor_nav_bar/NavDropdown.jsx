@@ -26,13 +26,8 @@ export default class NavDropdown extends Component {
     render() {
         let isBusy = this.props.isBusy.toString(); // Only to trigger render
         return (
-            <Dropdown id="dropdown-menu" style={{ float: 'right' }}>
-                <Dropdown.Toggle noCaret className="navButton">
-                    <i className="material-icons">more_vert</i>
-                    <span className="hideonresize" style={{ fontSize: '12px' }}>Menu</span>
-                </Dropdown.Toggle>
-                <Dropdown.Menu id="topMenu" className="pageMenu super-colors topMenu">
-                    {(Ediphy.Config.publish_button !== undefined && Ediphy.Config.publish_button) &&
+            <div>
+                {(Ediphy.Config.publish_button !== undefined && Ediphy.Config.publish_button) &&
                     <MenuItem eventKey="6" key="6">
                         <button className="dropdownButton"
                             disabled={this.props.undoDisabled}
@@ -41,10 +36,10 @@ export default class NavDropdown extends Component {
                                 this.props.serverModalOpen();
                             }}>
                             <i className="material-icons">save</i>
-                            {i18n.t('Save')}
+                            Simpan
                         </button>
                     </MenuItem>}
-                    {/* <MenuItem disabled={this.props.undoDisabled} eventKey="1" key="1">
+                {/* <MenuItem disabled={this.props.undoDisabled} eventKey="1" key="1">
                         <button className="dropdownButton" title={i18n.t('messages.import')}
                             disabled={ false }
                             onClick={()=>{this.props.toggleFileUpload(undefined, '*');}}>
@@ -52,21 +47,19 @@ export default class NavDropdown extends Component {
                             {i18n.t('messages.import')}
                         </button>
                     </MenuItem> */}
-                    <MenuItem eventKey="2" key="2">
-                        <button className="dropdownButton" title={i18n.t('messages.export')}
-                            disabled={this.props.navItemSelected === 0}
-                            onClick={()=>this.props.toggleExport()}><i className="material-icons">file_download</i>
-                            {i18n.t('messages.export')}
-                        </button>
-                    </MenuItem>
-                    <MenuItem disabled={false} eventKey="3" key="3">
+                <button className="navButton" title={i18n.t('messages.export')}
+                    disabled={this.props.navItemSelected === 0}
+                    onClick={()=>this.props.toggleExport()}><i className="material-icons">file_download</i>
+                    <span className="hideonresize" style={{ margin: "5px auto 0" }}>Unduh</span>
+                </button>
+                {/* <MenuItem disabled={false} eventKey="3" key="3">
                         <button className="dropdownButton" title={i18n.t('messages.global_config')}
                             disabled={false}
                             onClick={this.props.toggleGlobalConfig}><i className="material-icons">settings</i>
                             {i18n.t('messages.global_config')}
                         </button>
-                    </MenuItem>
-                    {/* {Ediphy.Config.external_providers.enable_catalog_modal &&
+                    </MenuItem> */}
+                {/* {Ediphy.Config.external_providers.enable_catalog_modal &&
                     [<MenuItem divider key="div_4"/>,
                         <MenuItem eventKey="4" key="4">
                             <button className="dropdownButton" title={i18n.t('Open_Catalog')}
@@ -88,21 +81,21 @@ export default class NavDropdown extends Component {
                                 {i18n.t('Open')}
                             </button>
                         </MenuItem>]} */}
-                    {/* <MenuItem disabled={false} eventKey="6" key="6">
+                {/* <MenuItem disabled={false} eventKey="6" key="6">
                         <button className="dropdownButton" title={i18n.t('messages.help')}
                             disabled={false}
                             onClick={this.props.openTour}><i className="material-icons">help</i>
                             {i18n.t('messages.help')}
                         </button>
                     </MenuItem> */}
-                    {(this.isAlreadySaved()) ? <MenuItem disabled={false} eventKey="7" key="7">
-                        <button className="dropdownButton" title={i18n.t('delete')}
-                            disabled={false}
-                            onClick={this.onDeleteDocument.bind(this)}><i className="material-icons">delete</i>
-                            {i18n.t('delete')}
-                        </button>
-                    </MenuItem> : null}
-                    {(Ediphy.Config.publish_button !== undefined && Ediphy.Config.publish_button) &&
+                {(this.isAlreadySaved()) ? <MenuItem disabled={false} eventKey="7" key="7">
+                    <button className="dropdownButton" title={i18n.t('delete')}
+                        disabled={false}
+                        onClick={this.onDeleteDocument.bind(this)}><i className="material-icons">delete</i>
+                        {i18n.t('delete')}
+                    </button>
+                </MenuItem> : null}
+                {(Ediphy.Config.publish_button !== undefined && Ediphy.Config.publish_button) &&
                     <MenuItem disabled={false} eventKey="8" key="8">
                         <button className="dropdownButton" title={i18n.t('messages.help')}
                             disabled={false}
@@ -112,10 +105,8 @@ export default class NavDropdown extends Component {
                             {i18n.t('messages.exit')}
                         </button>
                     </MenuItem>}
-
-                </Dropdown.Menu>
                 {this.state.alert}
-            </Dropdown>
+            </div>
         );
     }
     isAlreadySaved() {
