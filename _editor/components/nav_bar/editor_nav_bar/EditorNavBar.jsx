@@ -73,7 +73,7 @@ class EditorNavBar extends Component {
                     changeGlobalConfig={this.props.changeGlobalConfig}
                     uploadFunction={this.props.uploadFunction}
                     close={this.props.toggleGlobalConfig} />
-                <ExportModal aspectRatio={this.props.globalConfig.canvasRatio} show={this.state.showExport} export={this.props.export} scorm={this.props.scorm} close={this.toggleExport} />
+                <ExportModal changeGlobalConfig={this.props.changeGlobalConfig} aspectRatio={this.props.globalConfig.canvasRatio} show={this.state.showExport} export={this.props.export} scorm={this.props.scorm} close={this.toggleExport} />
 
             </Col>
         );
