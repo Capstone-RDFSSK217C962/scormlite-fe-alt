@@ -204,7 +204,7 @@ class EditorApp extends Component {
                     <AutoSave save={() => {dispatch(exportStateAsync(this.props.match.params.id, { ...this.props.store.getState() }));}}
                         isBusy={isBusy}
                         lastAction={lastActionDispatched}
-                        visorVisible={this.state.visorVisible}/>})
+                        visorVisible={this.state.visorVisible}/>}
                 </Row>
                 <Row style={{ height: 'calc(100% - 60px)' }} id="mainRow">
                     <EditorCarousel boxes={boxes}
