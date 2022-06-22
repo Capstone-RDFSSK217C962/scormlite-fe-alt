@@ -27,7 +27,7 @@ export default class EditorCarousel extends Component {
             <div id="colLeft" className="wrapperCarousel"
                 style={{
                     maxWidth: this.props.carouselShow ? (this.props.carouselFull ? '100%' : '212px') : '80px',
-                    overflowX: this.props.carouselFull ? 'hidden' : '',
+                    overflowX: this.props.carouselFull ? 'hidden' : '', borderRight: '1px solid #E5E8F2',
                 }}>
                 <CarouselHeader carouselFull={this.props.carouselFull}
                     carouselShow={this.props.carouselShow}

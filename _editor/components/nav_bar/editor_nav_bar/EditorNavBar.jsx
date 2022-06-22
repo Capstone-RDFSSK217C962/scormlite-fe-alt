@@ -37,7 +37,7 @@ class EditorNavBar extends Component {
     render() {
         return (
             <Col id="iconBar">
-                <div className="identity"> <button onClick={this.goBack}><span>&#8592; Kembali</span></button></div>
+                <div className="identity" style={{ display: 'flex', alignItems: 'center', paddingLeft: '10px', borderRight: '1px solid #E5E8F2' }}> <button onClick={this.goBack} style={{ border: "none", cursor: "pointer" }}><span>&#8592; Kembali</span></button></div>
                 <PluginsMenu category={this.props.category} hideTab={this.props.hideTab} setcat={this.props.setcat} />
                 <NavActionButtons boxSelected={this.props.boxSelected}
                     changeGlobalConfig={this.props.changeGlobalConfig}
