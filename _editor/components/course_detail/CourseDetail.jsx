@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Link } from 'react-router-dom';
 import CourseService from "../course_card/course.service";
 
+import { importState } from '../../../common/actions';
 import ModuleForm from "../module_form/ModuleForm";
 import CourseService from "../course_card/course.service";
 import ErrorPage from "../error/ErrorPage";
@@ -105,6 +106,7 @@ class CourseDetail extends Component {
                         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                             <VisorCourseDetail id="visor"
                                 title={"test"}
+                                // this.props.dispatch(importState(serialize(response.data.module.undoGroup)));
                                 visorVisible
                                 filesUploaded={this.props.store.getState().filesUploaded }
                                 state={{ ...this.props.store.getState().undoGroup.present, filesUploaded: this.props.store.getState().filesUploaded, status: this.props.store.getState().status }}
