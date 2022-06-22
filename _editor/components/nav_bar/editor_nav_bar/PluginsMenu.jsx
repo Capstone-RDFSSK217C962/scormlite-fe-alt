@@ -39,17 +39,17 @@ export default class PluginsMenu extends Component {
             },
             {
                 name: 'multimedia',
-                displayName: i18n.t("Multimedia"),
+                displayName: "Video Youtube",
                 icon: 'play_circle_outline',
             },
             {
                 name: 'objects',
-                displayName: i18n.t("Objects"),
+                displayName: "Unggah PDF",
                 icon: 'unarchive',
             },
             {
                 name: 'evaluation',
-                displayName: i18n.t("Evaluation"),
+                displayName: "Pertanyaan",
                 icon: 'school',
             },
 
@@ -62,7 +62,7 @@ export default class PluginsMenu extends Component {
                             className={ this.props.hideTab === 'show' && this.props.category === cat.name ? 'navButtonPlug active' : 'navButtonPlug' }
                             title={cat.displayName} disabled={false /* disablePlugins*/}
                             onClick={(e) => { this.props.category === cat.name ? this.openPlugin('') : this.openPlugin(cat.name); e.stopPropagation();}}>
-                            <i className="material-icons showonresize">{cat.icon}</i><span className="hideonresize"> {cat.displayName}</span>
+                            <i className="material-icons">{cat.icon}</i><span className="hideonresize"> {cat.displayName}</span>
                         </button>);
                     }
                     return null;
