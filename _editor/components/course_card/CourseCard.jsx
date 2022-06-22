@@ -21,7 +21,12 @@ class CourseCard extends Component {
                                 <span className="courseDuration"> {course.duration}</span>
                             </p>
                             <div className="courseFooter">
-                                <div className="courseStatus">{course.desc}</div>
+                                <div className="courseStatus">
+                                    {course.module ?
+                                        (course.module.everPublished ? 'Final' : 'Draf') :
+                                        (course.published ? 'Final' : 'Draf')
+                                    }
+                                </div>
                                 <Link to={`/courses/${course.id}`}>
                                     <button className="courseDetail">Lihat Detail</button>
                                 </Link>

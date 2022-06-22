@@ -275,6 +275,7 @@ export default class ExportModal extends Component {
                     }}>{i18n.t("global_config.Discard")}</Button>
                     <Button bsStyle="primary" id="accept_export_to_scorm" onClick={e => {
                         this.setState({ showLoader: true });
+                        this.props.changeGlobalConfig("status", "final");
                         exportFormats[this.state.format].handler(); e.preventDefault();
                     }}>{i18n.t("messages.export_course")}</Button>{'   '}
                 </Modal.Footer>
@@ -294,6 +295,10 @@ ExportModal.propTypes = {
    * Function for exporting the course to HTML
    */
     export: PropTypes.func.isRequired,
+    /**
+   * Modifies the course's global configuration
+   */
+    changeGlobalConfig: PropTypes.func.isRequired,
     /**
    * Function for exporting the course to SCORM
    */

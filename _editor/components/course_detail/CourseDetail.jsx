@@ -92,7 +92,10 @@ class CourseDetail extends Component {
                     </p>
                     <div className="courseFooter">
                         <div className="courseStatus">
-                            {this.state.course.published ? 'Published' : 'Draft'}
+                            {this.state.course.module ?
+                                (this.state.course.module.everPublished ? 'Final' : 'Draf') :
+                                (this.state.course.published ? 'Final' : 'Draf')
+                            }
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             <div className="editCourseIcon"/>
