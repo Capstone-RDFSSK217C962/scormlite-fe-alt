@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './DashboardNavbar.module.scss';
 
@@ -8,12 +8,12 @@ function DashboardNavbar() {
         <div className="navContainer">
             <div className="wrapperNavbar">
                 <ul>
-                    <Link to="/">
-                        <div className="dashboardIcon"><span>Dashboard</span></div>
-                    </Link>
-                    <Link to="/courses">
+                    <NavLink exact to="/" activeClassName="active">
+                        <div className="dashboardIcon" ><span>Dashboard</span></div>
+                    </NavLink>
+                    <NavLink exact to="/courses" activeClassName="active">
                         <div className="coursesIcon"><span>Semua Courses</span></div>
-                    </Link>
+                    </NavLink>
                 </ul>
             </div>
         </div>

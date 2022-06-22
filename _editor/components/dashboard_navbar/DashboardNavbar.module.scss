@@ -33,9 +33,7 @@
       white-space: nowrap;
     }
 
-    &:active,
-    &:hover,
-    &:first-of-type
+    &:hover
     {
       background-color: rgba(#E5E8F2, 0.6);
       border-radius: 10px;
@@ -45,6 +43,12 @@
     {
       margin-top: 16px;
     }
+  }
+
+  .active
+  {
+    background-color: rgba(#E5E8F2, 0.6);
+    border-radius: 10px;
   }
 }
 
