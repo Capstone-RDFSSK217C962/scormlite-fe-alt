@@ -8,6 +8,8 @@ import { withRouter, Link } from "react-router-dom";
 
 import AuthService from "./auth.service";
 
+import logo from "../../../dist/images/logo.svg";
+
 const required = (value) => {
     if (!value) {
         return (
@@ -145,7 +147,7 @@ class Register extends Component {
 
     render() {
         return (
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center", height: "100vh" }}>
                 <div
                     className="col-md-4"
                     style={{
@@ -154,7 +156,7 @@ class Register extends Component {
                         flexDirection: "column",
                     }}
                 >
-                    <h2 style={{ textAlign: "center" }}>Daftar</h2>
+                    <img className="logo" src={logo} alt="logo" style={{ height: "7rem", marginBottom: "3.5em" }}/>
                     <div className="card card-container">
                         <Form
                             onSubmit={this.handleRegister}
