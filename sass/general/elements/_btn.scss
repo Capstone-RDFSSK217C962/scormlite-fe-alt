@@ -1,14 +1,14 @@
 .btn-primary{
-	border-color:$blueprimary;
-	background-color:$blueprimary;
+	border-color:$indigoA400;
+	background-color:$indigoA400;
 	color:white;
 	&:hover , &:active, &:focus {
-		background-color: darken($blueprimary, 20%) !important;
+		background-color: darken($indigoA400, 20%) !important;
 	}
 }
 .btn[disabled].btn-primary{
-	border-color:$blueprimary;
-	background-color:$blueprimary !important;
+	border-color:$indigoA400;
+	background-color:$indigoA400 !important;
 	color: white !important;
 	opacity: 0.5;
 	&:hover{

@@ -34,7 +34,7 @@ export default class TemplatesModal extends Component {
                         <div id="empty"
                             className="template_item"
                             key="-1"
-                            style={{ width: '120px', height: '80px', border: this.state.itemSelected === -1 ? "solid #17CFC8 3px" : "solid #eee 1px", position: 'relative' }}
+                            style={{ width: '120px', height: '80px', border: this.state.itemSelected === -1 ? "solid #3D5AFE 3px" : "solid #eee 1px", position: 'relative' }}
                             onClick={e => {
                                 this.setState({
                                     itemSelected: -1,
@@ -48,7 +48,7 @@ export default class TemplatesModal extends Component {
                             }}><div className={'template_name'} style={{ display: this.state.itemSelected === -1 ? 'block' : 'none' }}>{i18n.t('templates.template0')}</div>
                         </div>
                         {this.templates.map((item, index) => {
-                            let border = this.state.itemSelected === index ? "solid #17CFC8 3px" : "solid #eee 1px";
+                            let border = this.state.itemSelected === index ? "solid #3D5AFE 3px" : "solid #eee 1px";
                             return (<div key={index} className="template_item" style={{ position: 'relative', border: border, width: '120px', height: '80px' }}>
                                 <TemplateThumbnail key={index} index={index}
                                     onClick={e => { this.setState({ itemSelected: index });}}

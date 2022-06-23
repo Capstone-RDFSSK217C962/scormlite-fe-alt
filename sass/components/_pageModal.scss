@@ -77,9 +77,9 @@
   	.modal-footer{
         border: none;
 		.btn-primary{
-			background-color: $blueprimary;
+			background-color: $indigoA400;
 			&:hover{
-				background-color: darken($blueprimary, 7%) !important;
+				background-color: darken($indigoA400, 7%) !important;
 			}
 		}
         .btn-secondary{
