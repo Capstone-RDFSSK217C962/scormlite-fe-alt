@@ -13,7 +13,7 @@ module.exports = {
         "opacity": "Opacity",
         "padding": "Padding",
         "pos": "Moment",
-        "PluginName": "Video Player",
+        "PluginName": "Youtube ",
         "radius": "Radius",
         "source": "Source",
         "message_mark_error": "You've chosen an incorrect value. You must introduce a time like in the format of h:mm:ss or mm:ss. E.g. 1:33",

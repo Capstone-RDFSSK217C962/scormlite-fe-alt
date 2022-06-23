@@ -39,17 +39,17 @@ export default class PluginsMenu extends Component {
             },
             {
                 name: 'multimedia',
-                displayName: "Video Youtube",
+                displayName: "Video",
                 icon: 'play_circle_outline',
             },
             {
                 name: 'objects',
-                displayName: "Unggah PDF",
+                displayName: "File",
                 icon: 'unarchive',
             },
             {
                 name: 'evaluation',
-                displayName: "Pertanyaan",
+                displayName: "Kuis",
                 icon: 'school',
             },
 

@@ -1,12 +1,12 @@
 module.exports = {
     "MultipleChoice": {
-        "PluginName": "Multiple choice",
+        "PluginName": "Pilihan ganda",
         "content_box_name": "Content ",
-        "Statement": "This is a Multiple Choice question with a single correct answer. You can write here the question statement",
+        "Statement": "Ini adalah pertanyaan pilihan ganda dengan satu jawaban benar. Tulislah pertanyaan di sini.",
         "Question": "Question",
-        "Answer": "Answer",
+        "Answer": "Opsi",
         "Feedback": "Feedback",
-        "FeedbackMsg": "Here you can provide some feedback about the answer. In order to disable this feature, turn it off in the toolbar.",
+        "FeedbackMsg": "Tulislah umpan balik tentang jawabannya.",
         "ShowFeedback": "Show feedback msg.",
         "Number": "Number  of answers",
         "ShowLettersInsteadOfNumbers": "Numbering",
@@ -14,7 +14,7 @@ module.exports = {
         "ShowNumbers": "Numbers",
         "QuizColor": "Quiz color",
         "Color": "Color",
-        "correctAnswerFeedback": "Correct answer",
+        "correctAnswerFeedback": "Jawaban",
         "notCount": "This exercise does not add points",
     },
 };
