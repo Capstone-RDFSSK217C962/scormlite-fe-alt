@@ -31,7 +31,7 @@
     "dev-only-doc": "webpack-dev-server --open --progress --colors --config doc/webpack.doc.dev.js",
     "add-all": "git add .",
     "create-plugin": "babel-node plugins/create_plugin.js ",
-    "heroku-prebuild": "npm install --dev"
+    "heroku-prebuild": "yarn install --production=false"
   },
   "pre-commit": [
     "eslint",
