@@ -172,7 +172,7 @@ button[disabled].navButton {
     align-self: center;
   }
   &.active, &.active:hover {
-    background-color: $blueprimary !important;
+    background-color: $grey100 !important;
     color: $darkest;
     font-weight: 600;
   }
