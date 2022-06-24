@@ -14,7 +14,7 @@
   "scripts": {
     "build-production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "build": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
-    "start": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "start": "webpack --config webpack.dev.js",
     "start-dev": "webpack-dev-server --open --colors --config webpack.dev.js --history-api-fallback",
     "bundle": "webpack && node bundle_script.js",
     "both": "npm run start-webpack & npm run watch-sass",
