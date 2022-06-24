@@ -30,7 +30,7 @@ module.exports = merge.smart(common, {
         contentBase: path.join(__dirname, '/dist'),
         hot: true,
         inline: true,
-        port: 8080,
+        port: process.env.PORT  || 8080,
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
