@@ -15,7 +15,7 @@ module.exports = merge.smart(common, {
     output: {
         path: path.join(__dirname, '/dist'),
         publicPath: '/', // This is used to generate URLs to e.g. images
-        filename: 'prod/[name]-bundle.min.js',
+        filename: '[name]-bundle.js',
     },
     devtool: 'cheap-module-source-map',
     // devtool: 'cheap-module-eval-source-map', // for dev in prod enviroment
