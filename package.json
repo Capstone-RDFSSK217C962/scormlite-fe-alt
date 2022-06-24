@@ -12,7 +12,7 @@
 		"node": "14.9.0"
 	},
   "scripts": {
-    "post-install": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "postinstall": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "dev": "webpack-dev-server --open --colors --config webpack.dev.js --history-api-fallback",
     "start": "node server.js",
     "start-dev": "webpack-dev-server --open --colors --config webpack.dev.js --history-api-fallback",
