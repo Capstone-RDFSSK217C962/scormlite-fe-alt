@@ -46,5 +46,8 @@ module.exports = merge.smart(common, {
                 'NODE_ENV': JSON.stringify('production'),
             },
         }),
+        new HtmlWebpackPlugin({
+            template: 'dist/index.html'
+        })
     ],
 });
