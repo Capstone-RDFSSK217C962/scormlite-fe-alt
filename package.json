@@ -9,12 +9,12 @@
     "url": "git://github.com/ging/ediphy.git"
   },
 	"engines": {
-		"node": "8.15.0"
+		"node": "14.9.0"
 	},
   "scripts": {
     "build-production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "build": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
-    "start": "node --max_old_space_size=460 ./node_modules/webpack/bin/webpack.js --config webpack.noserver.js",
+    "start": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "start-dev": "webpack-dev-server --open --colors --config webpack.dev.js --history-api-fallback",
     "bundle": "webpack && node bundle_script.js",
     "both": "npm run start-webpack & npm run watch-sass",
