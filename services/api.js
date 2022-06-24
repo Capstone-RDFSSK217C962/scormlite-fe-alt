@@ -5,7 +5,7 @@ import TokenService from "./token.service";
 import authService from "../_editor/components/auth/auth.service";
 
 const instance = axios.create({
-    baseURL: "http://localhost:3000/api",
+    baseURL: "https://scormlite-be.herokuapp.com/api",
     headers: {
         "Content-Type": "application/json",
     },
