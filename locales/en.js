@@ -314,7 +314,6 @@ let en = {
             "save_changes": "Save changes",
         },
         "messages": {
-            "add_new_mark": "Add new mark",
             "add_answer": "Tambah jawaban",
             "AddBox": "Add new box",
             "adjust_to_document": "Adjust to document",
@@ -375,7 +374,6 @@ let en = {
             "only_slides": "Only slides",
             "only_pages": "Only pages",
             "operation_in_progress": "Operation in progress...",
-            "pointer_events": "Allow to manually manipulate the content",
             "popoverUrlTitle": "Change this URL",
             "preview": "Lihat pratinjau",
             "publish_tooltip": "Makes the course available for the public",
