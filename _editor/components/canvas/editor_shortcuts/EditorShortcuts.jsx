@@ -154,21 +154,6 @@ export default class EditorShortcuts extends Component {
                         )
                     }
                     {
-                        config.isRich ?
-                            (<OverlayTrigger placement="top"
-                                overlay={
-                                    <Tooltip id="richMark">{i18n.t('messages.add_new_mark')}</Tooltip>
-                                }>
-                                <button id="markCreatorButton" className="editorTitleButton" onMouseDown={(e)=>{
-                                    e.preventDefault();
-                                    this.props.onMarkCreatorToggled(box.id);
-                                }}>
-                                    <i id="markCreatorButton" className="material-icons">room</i>
-                                </button>
-                            </OverlayTrigger>)
-                            : null
-                    }
-                    {
                         isSortableContainer(box.container) ? (
                             <OverlayTrigger placement="top"
                                 overlay={
@@ -238,32 +223,6 @@ export default class EditorShortcuts extends Component {
                                         // Ediphy.Plugins.get(toolbar.pluginId).openConfigModal(UPDATE_BOX, toolbar.state, toolbar.id);
                                     }}>
                                     <i className="material-icons">build</i>
-                                </button>
-                            </OverlayTrigger>
-                        ) : (
-                            null
-                        )
-                    }
-                    {
-                        (toolbar && config && config.needsPointerEventsAllowed) ? (
-                            <OverlayTrigger placement="top"
-                                overlay={
-                                    <Tooltip id="editartexto">
-                                        {i18n.t('messages.pointer_events')}
-                                    </Tooltip>
-                                }>
-                                <button id="pebutton" className={boxEl && boxEl.classList.contains('pointerEventsEnabled') ? "editorTitleButton dtbSelected" : "editorTitleButton"}
-                                    onClick={(e) => {
-                                        boxEl.classList.toggle('pointerEventsEnabled');
-                                        let but = document.getElementById('pebutton');
-                                        e.stopPropagation();
-                                        let bool = boxEl.classList.contains('pointerEventsEnabled');
-                                        if (this.props.pointerEventsCallback) {
-                                            this.props.pointerEventsCallback(bool ? 'enableAll' : 'disableAll', ttoolbar);
-                                        }
-                                        bool && but ? but.classList.add('dtbSelected') : but.classList.remove('dtbSelected');
-                                    }}>
-                                    <i className="material-icons">pan_tool</i>
                                 </button>
                             </OverlayTrigger>
                         ) : (
