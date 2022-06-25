@@ -17,7 +17,6 @@ class CourseDetail extends Component {
     constructor(props) {
         super(props);
 
-        console.log(...this.props.store.getState().undoGroup.present.navItemsById);
         this.state = {
             course: [],
             id: '',
