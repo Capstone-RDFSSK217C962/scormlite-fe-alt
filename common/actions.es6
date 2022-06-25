@@ -257,49 +257,49 @@ export function importEdi(state) {
     return { type: IMPORT_EDI, payload: { state } };
 }
 
-export function deleteRemoteFileVishAsync(id, url, callback) {
-    return dispatch => {
-        dispatch(setBusy(true, FILE_DELETING));
+// export function deleteRemoteFileVishAsync(id, url, callback) {
+//     return dispatch => {
+//         dispatch(setBusy(true, FILE_DELETING));
 
-        let form = new FormData();
-        form.append("_method", "delete");
-        if (typeof(ediphy_editor_params) !== 'undefined') {
-            form.append("authenticity_token", ediphy_editor_params.authenticity_token);
-        }
+//         let form = new FormData();
+//         form.append("_method", "delete");
+//         if (typeof(ediphy_editor_params) !== 'undefined') {
+//             form.append("authenticity_token", ediphy_editor_params.authenticity_token);
+//         }
 
-        return fetch(url, {
-            method: 'POST',
-            credentials: 'same-origin',
-            body: form,
-        }).then(response => {
-            if (!response.ok) {
-                if(response.status === 406) {
-                    return 200;
-                }
-                throw Error(response.statusText);
+//         return fetch(url, {
+//             method: 'POST',
+//             credentials: 'same-origin',
+//             body: form,
+//         }).then(response => {
+//             if (!response.ok) {
+//                 if(response.status === 406) {
+//                     return 200;
+//                 }
+//                 throw Error(response.statusText);
 
-            }
+//             }
 
-            return 200;
-        }).then((result) => {
-            dispatch(setBusy(false, id));
+//             return 200;
+//         }).then((result) => {
+//             dispatch(setBusy(false, id));
 
-            dispatch(deleteFile(id));
-            if (callback) {
-                callback(result);
-            }
-        })
-            .catch(e => {
-                dispatch(setBusy(false, FILE_DELETE_ERROR));
-                if (callback) {
-                    callback();
-                }
-                return false;
-            });
-    };
-}
+//             dispatch(deleteFile(id));
+//             if (callback) {
+//                 callback(result);
+//             }
+//         })
+//             .catch(e => {
+//                 dispatch(setBusy(false, FILE_DELETE_ERROR));
+//                 if (callback) {
+//                     callback();
+//                 }
+//                 return false;
+//             });
+//     };
+// }
 
-export function deleteRemoteFileEdiphyAsync(id, url, callback) {
+export function deleteRemoteFileAsync(id, url, callback) {
     return dispatch => {
         if (isDataURL(url)) {
             dispatch(deleteFile(id));
@@ -310,7 +310,7 @@ export function deleteRemoteFileEdiphyAsync(id, url, callback) {
         } else {
             dispatch(setBusy(true, FILE_DELETING));
             let fileId = url.split('/').pop();
-            let DELETE_FILE_EDIPHY_URL = encodeURI('http://localhost:8081/delete?file=' + fileId);
+            let DELETE_FILE_EDIPHY_URL = encodeURI(`${Ediphy.Config.server_url}/delete?file=` + fileId);
 
             return fetch(DELETE_FILE_EDIPHY_URL, {
                 method: 'POST',
@@ -467,14 +467,14 @@ export function importStateAsync() {
     };
 }
 
-export function uploadEdiphyResourceAsync(file, keywords = "", callback) {
+export function uploadResourceAsync(file, keywords = "", callback) {
     return dispatch => {
         dispatch(setBusy(true, FILE_UPLOADING));
 
         let form = new FormData();
         form.append("file", file);
         let id = ID_PREFIX_FILE + Date.now();
-        fetch("http://localhost:8081/upload", {
+        fetch(`${Ediphy.Config.server_url}/upload`, {
             method: 'POST',
             credentials: 'same-origin',
             body: form,
@@ -529,61 +529,61 @@ export function uploadEdiphyResourceAsync(file, keywords = "", callback) {
     };
 }
 
-export function uploadVishResourceAsync(query, keywords = "", callback) {
-    return dispatch => {
-        if (query && query.name && query.name.length > 0) {
-            let filename = query.name;
-            dispatch(setBusy(true, FILE_UPLOADING));
+// export function uploadVishResourceAsync(query, keywords = "", callback) {
+//     return dispatch => {
+//         if (query && query.name && query.name.length > 0) {
+//             let filename = query.name;
+//             dispatch(setBusy(true, FILE_UPLOADING));
 
-            let form = new FormData();
-            form.append("document[title]", query.name);
-            form.append("document[description]", "Uploaded using Ediphy Editor");
-            // form.append("document[tag_list][]", keywords);
-            if (typeof(ediphy_editor_params) !== 'undefined') {
-                form.append("document[owner_id]", ediphy_editor_params.id);
-                form.append("document[scope]", "1");
-                form.append("authenticity_token", ediphy_editor_params.authenticity_token);
-            }
-            form.append("document[file]", query);
-            let filenameDeconstructed = filename.split('.');
-            let mimetype = (query.type && query.type !== "") ? query.type : filenameDeconstructed[filenameDeconstructed.length - 1];
-            return fetch(Ediphy.Config.upload_vish_url, {
-                method: 'POST',
-                credentials: 'same-origin',
-                body: form,
-            }).then(response => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
+//             let form = new FormData();
+//             form.append("document[title]", query.name);
+//             form.append("document[description]", "Uploaded using Ediphy Editor");
+//             // form.append("document[tag_list][]", keywords);
+//             if (typeof(ediphy_editor_params) !== 'undefined') {
+//                 form.append("document[owner_id]", ediphy_editor_params.id);
+//                 form.append("document[scope]", "1");
+//                 form.append("authenticity_token", ediphy_editor_params.authenticity_token);
+//             }
+//             form.append("document[file]", query);
+//             let filenameDeconstructed = filename.split('.');
+//             let mimetype = (query.type && query.type !== "") ? query.type : filenameDeconstructed[filenameDeconstructed.length - 1];
+//             return fetch(Ediphy.Config.upload_vish_url, {
+//                 method: 'POST',
+//                 credentials: 'same-origin',
+//                 body: form,
+//             }).then(response => {
+//                 if (!response.ok) {
+//                     throw Error(response.statusText);
+//                 }
 
-                return response.text().then((text)=>{
-                    return JSON.parse(text);
-                });
-            }).then((result) => {
+//                 return response.text().then((text)=>{
+//                     return JSON.parse(text);
+//                 });
+//             }).then((result) => {
 
-                let id = ID_PREFIX_FILE + Date.now();
-                mimetype = (result.type === 'scormpackage' || result.type === 'webapp') ? result.type : mimetype;
-                if (mimetype === 'application/vnd.ms-excel') {
-                    mimetype = 'csv';
-                }
-                dispatch(uploadFile(id, result.src, query.name, keywords, mimetype));
-                if (callback) {
-                    callback(result.src);
-                }
-                dispatch(setBusy(false, id));
-            })
-                .catch(e => {
-                    dispatch(setBusy(false, FILE_UPLOAD_ERROR));
-                    if (callback) {
-                        callback();
-                    }
-                });
+//                 let id = ID_PREFIX_FILE + Date.now();
+//                 mimetype = (result.type === 'scormpackage' || result.type === 'webapp') ? result.type : mimetype;
+//                 if (mimetype === 'application/vnd.ms-excel') {
+//                     mimetype = 'csv';
+//                 }
+//                 dispatch(uploadFile(id, result.src, query.name, keywords, mimetype));
+//                 if (callback) {
+//                     callback(result.src);
+//                 }
+//                 dispatch(setBusy(false, id));
+//             })
+//                 .catch(e => {
+//                     dispatch(setBusy(false, FILE_UPLOAD_ERROR));
+//                     if (callback) {
+//                         callback();
+//                     }
+//                 });
 
-            // alert(i18n.t("error.file_extension_invalid"));
+//             // alert(i18n.t("error.file_extension_invalid"));
 
-        }
-        alert(i18n.t("error.file_not_selected"));
+//         }
+//         alert(i18n.t("error.file_not_selected"));
 
-        return false;
-    };
-}
+//         return false;
+//     };
+// }
