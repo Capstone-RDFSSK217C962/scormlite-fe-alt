@@ -162,8 +162,6 @@
     "bootstrap": "^3.3.7",
     "connect-history-api-fallback": "^1.6.0",
     "deepmerge": "^2.0.1",
-    "ediphy-server": "file:ediphy_server",
-    "ediphy_server": "file:ediphy_server",
     "es6-promise": "^4.1.1",
     "file-saver": "^1.3.3",
     "html-dir-content": "^0.2.0",
