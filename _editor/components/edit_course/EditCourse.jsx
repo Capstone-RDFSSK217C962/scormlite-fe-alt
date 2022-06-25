@@ -117,8 +117,8 @@ class EditCourse extends Component {
                 this.state.id,
                 this.state.title,
                 this.state.desc,
-                this.state.duration,
                 this.state.code,
+                this.state.duration,
                 this.state.package_url,
                 this.state.published
             ).then(

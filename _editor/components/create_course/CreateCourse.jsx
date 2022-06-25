@@ -78,8 +78,8 @@ class CreateCourse extends Component {
             CourseService.createCourse(
                 this.state.title,
                 this.state.desc,
-                this.state.duration,
                 this.state.code,
+                this.state.duration,
                 this.state.package_url
             ).then(
                 (response) => {
