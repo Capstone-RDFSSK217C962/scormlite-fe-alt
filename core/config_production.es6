@@ -14,6 +14,7 @@ export default {
     scorm_zip_2004: "/assets/lib/scorm/scorm2004.zip",
     scorm_zip_12: "/assets/lib/scorm/scorm1.2.zip",
     visor_zip: "/assets/lib/visor/dist.zip",
+    server_url: "https://scormlite-be.herokuapp.com/api",
     export_url: "/ediphy_documents/",
     import_url: "/ediphy_documents/",
     search_vish_url: "/apis/search/",

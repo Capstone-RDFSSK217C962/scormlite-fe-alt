@@ -27,11 +27,11 @@ export default class PluginsMenu extends Component {
      */
     render() {
         let categories = [
-            // {
-            //     name: 'image',
-            //     displayName: "Gambar",
-            //     icon: 'image',
-            // },
+            {
+                name: 'image',
+                displayName: "Gambar",
+                icon: 'image',
+            },
             {
                 name: 'text',
                 displayName: "Teks",

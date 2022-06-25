@@ -59,7 +59,7 @@ function filesUploaded(state = {}, action = {}) {
                 return result;
             }, {});
     case IMPORT_STATE:
-        return action.payload.present.filesUploaded || state;
+        return action.payload.filesUploaded || state;
     case IMPORT_EDI:
         return { ...state, ...action.payload.state.filesUploaded };
     default:
