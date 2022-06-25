@@ -113,7 +113,7 @@ export function MultipleChoice(base) {
         },
         getInitialState: function() {
             return {
-                nBoxes: 3,
+                nBoxes: 5,
                 showFeedback: true,
                 letters: i18n.t("MultipleChoice.ShowLetters"),
                 quizColor: 'rgba(0, 173, 156, 1)',
