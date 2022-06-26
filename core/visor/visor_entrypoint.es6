@@ -26,9 +26,9 @@ if (window.State) {
     window.State = undefined;
 }
 
-if (process.env.DOC !== 'doc' && process.env.NODE_ENV === 'production' && typeof ediphy_editor_json !== 'undefined') {
-    window.Ediphy.State = serialize({ "present": { ...JSON.parse(ediphy_editor_json) } }).present;
-}
+// if (process.env.DOC !== 'doc' && process.env.NODE_ENV === 'production' && typeof ediphy_editor_json !== 'undefined') {
+//     window.Ediphy.State = serialize({ "present": { ...JSON.parse(ediphy_editor_json) } }).present;
+// }
 
 Config.pluginList.map(id => {
     try {
