@@ -8,9 +8,9 @@
     "type": "git",
     "url": "git://github.com/ging/ediphy.git"
   },
-	"engines": {
-		"node": "14.9.0"
-	},
+  "engines": {
+    "node": "14.9.0"
+  },
   "scripts": {
     "postinstall": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "dev": "webpack-dev-server --open --colors --config webpack.dev.js --history-api-fallback",
@@ -160,6 +160,7 @@
     "babel-jest": "^22.1.0",
     "basic-xml2json": "^1.0.4",
     "bootstrap": "^3.3.7",
+    "connect-history-api-fallback": "^1.6.0",
     "deepmerge": "^2.0.1",
     "ediphy-server": "file:ediphy_server",
     "ediphy_server": "file:ediphy_server",

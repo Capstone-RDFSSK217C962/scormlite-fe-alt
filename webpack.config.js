@@ -39,7 +39,7 @@ module.exports = merge.smart(common, {
                 if_return: true,
                 join_vars: true,
             },
-            sourceMap: true, minimize: true
+            sourceMap: true, minimize: true,
         }),
         new webpack.DefinePlugin({
             'process.env': {
