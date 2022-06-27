@@ -5,7 +5,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { withRouter, Redirect, Link } from "react-router-dom";
 
-import AuthService from "./auth.service";
+import AuthService from "../../../core/services/auth.service";
 
 import logo from "../../../dist/images/logo.svg";
 

@@ -3,7 +3,7 @@ import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from "react-validation/build/button";
 
-import CourseService from "../course_card/course.service";
+import CourseService from "../../../core/services/course.service";
 import LoadingSpinner from "../loading_spinner/LoadingSpinner";
 import ErrorPage from "../error/ErrorPage";
 

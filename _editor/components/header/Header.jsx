@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import EventBus from "../../../common/EventBus";
-import AuthService from "../auth/auth.service";
+import AuthService from "../../../core/services/auth.service";
 import logo from "../../../dist/images/logo.svg";
 import "./Header.module.scss";
 import { capitalize } from "../../../common/utils";

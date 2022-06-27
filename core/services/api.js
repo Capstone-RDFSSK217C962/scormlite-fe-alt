@@ -2,7 +2,7 @@ import axios from "axios";
 import 'regenerator-runtime/runtime';
 
 import TokenService from "./token.service";
-import authService from "../_editor/components/auth/auth.service";
+import authService from "./auth.service";
 
 const instance = axios.create({
     baseURL: "http://localhost:3000/api",

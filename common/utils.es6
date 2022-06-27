@@ -1,4 +1,4 @@
-import AuthService from '../_editor/components/auth/auth.service';
+import AuthService from '../core/services/auth.service';
 import { ID_PREFIX_BOX, ID_PREFIX_PAGE, ID_PREFIX_SECTION, ID_PREFIX_SORTABLE_BOX, ID_PREFIX_FILE,
     ID_PREFIX_CONTAINED_VIEW, ID_PREFIX_SORTABLE_CONTAINER, PAGE_TYPES } from './constants';
 

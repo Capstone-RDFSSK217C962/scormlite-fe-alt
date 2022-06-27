@@ -4,7 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { Modal, Button } from 'react-bootstrap';
 import { importState } from '../../../common/actions';
 import ModuleForm from "../module_form/ModuleForm";
-import CourseService from "../course_card/course.service";
+import CourseService from "../../../core/services/course.service";
 import ErrorPage from "../error/ErrorPage";
 import VisorCourseDetail from "../../../_visor/containers/VisorCourseDetail";
 
