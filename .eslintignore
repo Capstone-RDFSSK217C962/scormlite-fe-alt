@@ -1,6 +1,5 @@
 node_modules
 dist
-doc/dist
 sass
 webpack_plugins
 coverage

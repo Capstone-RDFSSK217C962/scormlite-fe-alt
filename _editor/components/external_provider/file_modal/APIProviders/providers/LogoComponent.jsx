@@ -15,7 +15,7 @@ export default class LogoComponent extends React.Component {
         for (let i = 1; i <= numberOfAvatars; i++) {
             // let url = `http://educainternet.es/assets/logos/original/excursion-${this.zeroPad(i)}.png`;
             let url = `/assets/logos/original/excursion-${this.zeroPad(i)}.png`;
-            if (process.env.DOC === 'doc' || process.env.NODE_ENV !== 'production') {
+            if (process.env.NODE_ENV !== 'production') {
                 url = "https://vishub.org" + url;
             }
             avatars.push(<ImageComponent key={i} url={url} title={"Avatar " + i} onElementSelected={this.props.onElementSelected} isSelected={url === this.props.elementSelected}/>);
