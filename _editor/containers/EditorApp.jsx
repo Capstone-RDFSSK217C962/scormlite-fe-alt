@@ -667,11 +667,11 @@ class EditorApp extends Component {
             }
         );
 
-        if (process.env.NODE_ENV === 'production' && process.env.DOC !== 'doc' && ediphy_editor_json && ediphy_editor_json !== 'undefined') {
+        if (process.env.NODE_ENV === 'production' && ediphy_editor_json && ediphy_editor_json !== 'undefined') {
             this.props.dispatch(importState(serialize(JSON.parse(ediphy_editor_json))));
 
         }
-        if (process.env.NODE_ENV === 'production' && process.env.DOC === 'doc') {
+        if (process.env.NODE_ENV === 'production') {
             // window.parent.addEventListener("beforeunload", this.beforeUnloadAlert); // it is done outside
             window.oncontextmenu = function() {
                 return false;

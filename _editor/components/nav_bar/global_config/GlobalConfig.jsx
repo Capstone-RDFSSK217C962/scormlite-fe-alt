@@ -316,7 +316,7 @@ export default class GlobalConfig extends Component {
                                             options={statusOptions()}
                                             onChange={e => {this.setState({ modifiedState: true, status: e.value }); }} />
                                     </FormGroup>
-                                    {(process.env.NODE_ENV === 'production' && process.env.DOC !== 'doc') ? <FormGroup className="allowance">
+                                    {(process.env.NODE_ENV === 'production') ? <FormGroup className="allowance">
                                         <ControlLabel>{i18n.t('global_config.permissions.title')}</ControlLabel><br/>
                                         <ToggleSwitch onChange={(e)=>{this.setState({ modifiedState: true, allowClone: !allowClone });}} checked={allowClone}/>
                                         { i18n.t('global_config.permissions.allow_clone') }<br/>
