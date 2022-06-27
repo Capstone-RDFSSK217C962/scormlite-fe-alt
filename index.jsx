@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
-// import history from './common/history';
 import sortable from 'jquery-ui/ui/widgets/sortable';
 import ReduxProvider from './_editor/containers/ReduxProvider';
 // import App from './_editor/containers/AppProvider';
