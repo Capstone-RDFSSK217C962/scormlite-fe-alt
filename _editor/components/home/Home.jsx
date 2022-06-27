@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 import './Home.module.scss';
 import CourseCard from '../course_card/CourseCard';
-import CourseService from "../course_card/course.service";
+import CourseService from "../../../core/services/course.service";
 import ErrorPage from "../error/ErrorPage";
 
 export default class Home extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import CourseCard from "../course_card/CourseCard";
-import CourseService from "../course_card/course.service";
+import CourseService from "../../../core/services/course.service";
 import "../home/Home.module.scss";
 import ErrorPage from "../error/ErrorPage";
 

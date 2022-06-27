@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import CourseService from '../course_card/course.service';
+import CourseService from '../../../core/services/course.service';
 
 import Visor from '../../../_visor/containers/Visor';
 

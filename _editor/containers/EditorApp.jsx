@@ -52,7 +52,7 @@ import ExitModal from "../components/exit_modal/ExitModal";
 import { DragDropContext } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
 import { withRouter } from 'react-router-dom';
-import CourseService from '../components/course_card/course.service';
+import CourseService from '../../core/services/course.service';
 
 const cookies = new Cookies();
 

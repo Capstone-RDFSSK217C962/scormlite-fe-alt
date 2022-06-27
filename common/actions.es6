@@ -4,7 +4,7 @@ import i18n from 'i18next';
 import { ID_PREFIX_FILE, FILE_UPLOAD_ERROR, FILE_UPLOADING, FILE_DELETING, FILE_DELETE_ERROR } from './constants';
 import { isDataURL } from './utils';
 import { serialize } from '../reducers/serializer';
-import CourseService from "../_editor/components/course_card/course.service";
+import CourseService from "../core/services/course.service";
 
 export const ADD_BOX = 'ADD_BOX';
 export const SELECT_BOX = 'SELECT_BOX';
