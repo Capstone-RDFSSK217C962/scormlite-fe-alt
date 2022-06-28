@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Scorm Lite Capstone Team",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ging/ediphy.git"
-  },
   "scripts": {
     "build-production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "build": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --config webpack.prod.js",
