@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Scorm Lite Capstone Team",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ging/ediphy.git"
-  },
   "engines": {
     "node": "14.9.0"
   },
