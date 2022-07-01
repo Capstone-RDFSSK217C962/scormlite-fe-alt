@@ -310,7 +310,7 @@ export function deleteRemoteFileAsync(id, url, callback) {
         } else {
             dispatch(setBusy(true, FILE_DELETING));
             let fileId = url.split('/').pop();
-            let DELETE_FILE_EDIPHY_URL = encodeURI(`${Ediphy.Config.server_url}/delete?file=` + fileId);
+            let DELETE_FILE_EDIPHY_URL = encodeURI(`${Ediphy.Config.server_url}/api/delete?file=` + fileId);
 
             return fetch(DELETE_FILE_EDIPHY_URL, {
                 method: 'POST',
@@ -474,7 +474,7 @@ export function uploadResourceAsync(file, keywords = "", callback) {
         let form = new FormData();
         form.append("file", file);
         let id = ID_PREFIX_FILE + Date.now();
-        fetch(`${Ediphy.Config.server_url}/upload`, {
+        fetch(`${Ediphy.Config.server_url}/file/upload`, {
             method: 'POST',
             credentials: 'same-origin',
             body: form,
