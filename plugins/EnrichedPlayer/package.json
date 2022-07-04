@@ -1,0 +1,8 @@
+{
+  "name" : "EnrichedPlayer",
+  "version" : "0.1.0",
+  "dependencies": {
+    "react-player": "^1.6.4",
+    "screenfull": "^3.2.2"
+  }
+}
