@@ -1,0 +1,25 @@
+
+module.exports = {
+    "Rating": {
+        "PluginName": "Rating",
+        "content_box_name": "Content ",
+        "Statement": "This is a Multiple Choice question with a single correct answer. You can write here the question statement",
+        "Question": "Question",
+        "Feedback": "Feedback",
+        "FeedbackMsg": "Here you can provide some feedback about the answer. In order to disable this feature, turn it off in the toolbar.",
+        "ShowFeedback": "Show feedback msg.",
+        "ShowStars": "Show stars instead of numbers",
+        "background_color": "Background color",
+        "border_color": "Border color",
+        "border_size": "Border Size",
+        "border_style": "Border Style",
+        "box_style": "Box style",
+        "opacity": "Opacity",
+        "padding": "Padding",
+        "pos": "Position",
+        "radius": "Radius",
+        "source": "Fuente",
+        "Answer": "Answer",
+        "Number": "Number of levels",
+    },
+};

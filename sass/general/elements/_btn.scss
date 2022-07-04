@@ -1,0 +1,47 @@
+.btn-primary{
+	border-color:$blueprimary;
+	background-color:$blueprimary;
+	color:white;
+	&:hover , &:active, &:focus {
+		background-color: darken($blueprimary, 20%) !important;
+	}
+}
+.btn[disabled].btn-primary{
+	border-color:$blueprimary;
+	background-color:$blueprimary !important;
+	color: white !important;
+	opacity: 0.5;
+	&:hover{
+		color: white !important;
+	}
+}
+
+.nav-pills > li  > a {
+	border-color:$blueprimary;
+	color: $blueprimary;
+	 &:hover , &:active, &:focus{
+	 	background-color: $grisclaro;
+	 }
+}
+.nav-pills > li.active  > a {
+	color:white;
+	background-color: 	$blueprimary;
+	&:hover , &:active, &:focus {
+ 		background-color: $blueprimary;
+	 }
+}
+
+.trashbutton{
+	background-color:transparent;
+	right: 0;
+	position:absolute;
+	border: 0;
+}
+
+.minLista{
+	min-height: 35px;
+}
+
+.checkbox{
+	display: inline-block;
+}
